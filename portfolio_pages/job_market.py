@@ -12,6 +12,7 @@ import streamlit as st
 
 API_URL = "https://www.arbeitnow.com/api/job-board-api"
 SKILLS = ("Python", "SQL", "Power BI", "AWS", "Azure", "Tableau", "Pandas", "Spark")
+CHART_COLORS = ["#fcfcfd", "#e5484d", "#a8adb4", "#6d727a", "#d5d7da"]
 
 
 @st.cache_data(ttl=1800, show_spinner=False)
@@ -40,10 +41,45 @@ def _skill_counts(descriptions: pd.Series) -> pd.DataFrame:
     return pd.DataFrame(rows).query("Mentions > 0").sort_values("Mentions", ascending=False)
 
 
+def _style_figure(fig):
+    fig.update_layout(
+        template="plotly_dark",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font={"family": "Inter, Arial, sans-serif", "color": "#c7c9cd"},
+        title={"font": {"size": 20, "color": "#fcfcfd"}},
+        margin={"l": 18, "r": 18, "t": 64, "b": 18},
+        hoverlabel={"bgcolor": "#171a20", "bordercolor": "#4c5058"},
+    )
+    fig.update_xaxes(gridcolor="rgba(252,252,253,.08)", zerolinecolor="rgba(252,252,253,.12)")
+    fig.update_yaxes(gridcolor="rgba(252,252,253,.08)", zerolinecolor="rgba(252,252,253,.12)")
+    return fig
+
+
 def render_job_market() -> None:
-    st.markdown('<div class="eyebrow">Live labor-market analytics</div>', unsafe_allow_html=True)
-    st.title("Job Market Analytics")
-    st.caption("Current listings from the public Arbeitnow Job Board API.")
+    st.markdown(
+        """
+        <section class="page-hero">
+          <div class="brand-line">Project 02 / Labor market</div>
+          <h1>Job Market<br>Analytics</h1>
+          <p>
+            Live hiring signals, locations, remote opportunities and skill demand
+            from a public European job feed.
+          </p>
+          <div class="source-line">Arbeitnow Job Board API</div>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        """
+        <section class="section-intro">
+          <div class="section-kicker">Live explorer</div>
+          <h2>From listings to<br>labor-market signals.</h2>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
     with st.spinner("Loading current job listings…"):
         try:
             jobs = _fetch_jobs()
@@ -61,6 +97,10 @@ def render_job_market() -> None:
             lambda col: col.str.contains(search, case=False, na=False)
         ).any(axis=1)
         filtered = filtered[mask]
+    st.markdown(
+        '<div class="section-kicker" style="margin:2rem 0 1rem">Current selection / overview</div>',
+        unsafe_allow_html=True,
+    )
     k1, k2, k3, k4 = st.columns(4)
     k1.metric("Listings", f"{len(filtered):,}")
     k2.metric("Companies", f"{filtered['company_name'].nunique():,}")
@@ -73,9 +113,9 @@ def render_job_market() -> None:
     with left:
         locations = filtered["location"].replace("", "Not specified").value_counts().head(10).sort_values()
         fig = px.bar(x=locations.values, y=locations.index, orientation="h", title="Top locations",
-                     labels={"x": "Listings", "y": ""}, color_discrete_sequence=["#5eead4"])
-        fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
-        st.plotly_chart(fig, use_container_width=True)
+                     labels={"x": "Listings", "y": ""}, color_discrete_sequence=["#fcfcfd"])
+        fig.update_traces(marker_line_width=0, hovertemplate="%{y}<br>%{x} listings<extra></extra>")
+        st.plotly_chart(_style_figure(fig), width="stretch")
     with right:
         skills = _skill_counts(filtered["description"])
         if skills.empty:
@@ -83,11 +123,19 @@ def render_job_market() -> None:
         else:
             fig = px.bar(skills.sort_values("Mentions"), x="Mentions", y="Skill", orientation="h",
                          title="Tracked skill mentions", color="Mentions",
-                         color_continuous_scale=["#60a5fa", "#5eead4"])
-            fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)",
-                              plot_bgcolor="rgba(0,0,0,0)", coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
+                         color_continuous_scale=["#6d727a", "#e5484d"])
+            fig.update_layout(coloraxis_showscale=False)
+            fig.update_traces(marker_line_width=0)
+            st.plotly_chart(_style_figure(fig), width="stretch")
     display = [c for c in ("title", "company_name", "location", "remote") if c in filtered]
-    st.subheader("Listing explorer")
-    st.dataframe(filtered[display], hide_index=True, use_container_width=True)
+    st.markdown(
+        """
+        <section class="section-intro" style="margin-top:4rem">
+          <div class="section-kicker">Detail / records</div>
+          <h2>Listing explorer.</h2>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.dataframe(filtered[display], hide_index=True, width="stretch")
     st.caption("Source: Arbeitnow Job Board API. Availability and completeness depend on the provider.")
