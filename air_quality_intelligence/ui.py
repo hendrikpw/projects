@@ -18,26 +18,7 @@ from air_quality_intelligence.src.analytics import (
 from air_quality_intelligence.src.data import CITIES, fetch_cities, generate_demo_data
 
 
-PAGE_CSS = """
-<style>
-.aq-hero {
-  padding: 1.65rem 1.8rem; border-radius: 22px;
-  background: linear-gradient(135deg, rgba(8, 47, 73, .92), rgba(15, 23, 42, .92));
-  border: 1px solid rgba(94, 234, 212, .18); margin-bottom: 1rem;
-}
-.aq-hero h1 { margin: .28rem 0 .5rem; font-size: clamp(2rem, 4vw, 3.4rem); }
-.aq-hero p { color: #a9bdd2; margin: 0; max-width: 820px; }
-.source-pill {
-  display: inline-block; margin-top: .8rem; padding: .35rem .7rem; border-radius: 999px;
-  color: #b7fff4; background: rgba(45, 212, 191, .10);
-  border: 1px solid rgba(45, 212, 191, .23); font-size: .76rem; font-weight: 600;
-}
-[data-testid="stMetric"] {
-  background: rgba(16, 32, 57, .78); border: 1px solid rgba(148, 163, 184, .16);
-  border-radius: 16px; padding: 1rem 1.1rem;
-}
-</style>
-"""
+CHART_COLORS = ["#fcfcfd", "#e5484d", "#a8adb4", "#6d727a", "#d5d7da", "#8e9299"]
 
 
 @st.cache_data(ttl=1800, show_spinner=False)
@@ -53,25 +34,36 @@ def _transparent_layout(fig: go.Figure) -> go.Figure:
         template="plotly_dark",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        font={"color": "#dbe7f3"},
-        margin={"l": 12, "r": 12, "t": 56, "b": 12},
-        hoverlabel={"bgcolor": "#102039"},
+        font={"family": "Inter, Arial, sans-serif", "color": "#c7c9cd"},
+        title={"font": {"size": 20, "color": "#fcfcfd"}},
+        margin={"l": 18, "r": 18, "t": 64, "b": 18},
+        hoverlabel={"bgcolor": "#171a20", "bordercolor": "#4c5058"},
     )
-    fig.update_xaxes(gridcolor="rgba(148,163,184,.10)")
-    fig.update_yaxes(gridcolor="rgba(148,163,184,.10)")
+    fig.update_xaxes(gridcolor="rgba(252,252,253,.08)", zerolinecolor="rgba(252,252,253,.12)")
+    fig.update_yaxes(gridcolor="rgba(252,252,253,.08)", zerolinecolor="rgba(252,252,253,.12)")
     return fig
 
 
 def render_dashboard() -> None:
-    st.markdown(PAGE_CSS, unsafe_allow_html=True)
     st.markdown(
         """
-        <section class="aq-hero">
-          <div class="eyebrow">Environmental intelligence · 7-day outlook</div>
-          <h1>European Air Quality Intelligence</h1>
-          <p>Compare urban air-quality forecasts, isolate high-risk hours and understand
-          which pollutants shape each city's outlook.</p>
-          <span class="source-pill">Live model data · Open-Meteo × CAMS</span>
+        <section class="page-hero">
+          <div class="brand-line">Project 01 / Environment</div>
+          <h1>European<br>Air Quality</h1>
+          <p>
+            Compare urban forecasts, isolate high-risk hours and understand
+            which pollutants shape each city's seven-day outlook.
+          </p>
+          <div class="source-line">Open-Meteo × CAMS / Live model data</div>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        """
+        <section class="section-intro">
+          <div class="section-kicker">Forecast explorer</div>
+          <h2>One atmosphere.<br>Different city signals.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -109,6 +101,10 @@ def render_dashboard() -> None:
     peak = frame.loc[frame["european_aqi"].idxmax()]
     poor_hours = int((frame["european_aqi"] > 60).sum())
     average = frame["european_aqi"].mean()
+    st.markdown(
+        '<div class="section-kicker" style="margin:2rem 0 1rem">Current selection / overview</div>',
+        unsafe_allow_html=True,
+    )
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Average AQI", f"{average:.0f}", aqi_band(average))
     c2.metric("Cleanest outlook", best["city"], f"AQI {best['average_aqi']:.0f}")
@@ -119,15 +115,15 @@ def render_dashboard() -> None:
         frame, x="time", y="european_aqi", color="city",
         title="Hourly European AQI forecast",
         labels={"time": "", "european_aqi": "European AQI", "city": "City"},
-        color_discrete_sequence=["#5eead4", "#60a5fa", "#c084fc", "#fbbf24", "#fb7185", "#a3e635"],
+        color_discrete_sequence=CHART_COLORS,
     )
     trend.add_hrect(
         y0=60, y1=max(105, frame["european_aqi"].max() + 5),
-        fillcolor="#fb7185", opacity=0.06, line_width=0,
+        fillcolor="#e5484d", opacity=0.07, line_width=0,
     )
-    trend.add_hline(y=60, line_dash="dot", line_color="#fb923c", annotation_text="Poor threshold")
+    trend.add_hline(y=60, line_dash="dot", line_color="#e5484d", annotation_text="Poor threshold")
     trend.update_traces(line={"width": 2.4})
-    st.plotly_chart(_transparent_layout(trend), use_container_width=True)
+    st.plotly_chart(_transparent_layout(trend), width="stretch")
 
     left, right = st.columns([1.15, 0.85])
     with left:
@@ -136,31 +132,39 @@ def render_dashboard() -> None:
             daily, x="date", y="mean_aqi", color="city", barmode="group",
             title="Daily average by city",
             labels={"date": "", "mean_aqi": "Average AQI", "city": "City"},
-            color_discrete_sequence=["#5eead4", "#60a5fa", "#c084fc", "#fbbf24", "#fb7185", "#a3e635"],
+            color_discrete_sequence=CHART_COLORS,
         )
-        st.plotly_chart(_transparent_layout(bars), use_container_width=True)
+        st.plotly_chart(_transparent_layout(bars), width="stretch")
     with right:
         mix = pollutant_mix(frame)
         donut = px.pie(
             mix, values="hours", names="pollutant", hole=0.68,
             title="Dominant concentration signal",
-            color_discrete_sequence=["#5eead4", "#60a5fa", "#fbbf24", "#fb7185"],
+            color_discrete_sequence=["#fcfcfd", "#e5484d", "#8e9299", "#4c5058"],
         )
         donut.update_traces(textinfo="percent+label")
-        st.plotly_chart(_transparent_layout(donut), use_container_width=True)
+        st.plotly_chart(_transparent_layout(donut), width="stretch")
         st.caption(
             "Diagnostic attribution based on normalized concentrations; "
             "not a replacement for the official consolidated AQI."
         )
 
-    st.subheader("City comparison")
+    st.markdown(
+        """
+        <section class="section-intro" style="margin-top:4rem">
+          <div class="section-kicker">Detail / cities</div>
+          <h2>City comparison.</h2>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
     table = summary.rename(columns={
         "city": "City", "average_aqi": "Average AQI", "peak_aqi": "Peak AQI",
         "poor_hours": "Hours > 60", "pm25_average": "Avg PM2.5 (µg/m³)",
     })
     for column in ("Average AQI", "Peak AQI", "Avg PM2.5 (µg/m³)"):
         table[column] = table[column].round(1)
-    st.dataframe(table, hide_index=True, use_container_width=True)
+    st.dataframe(table, hide_index=True, width="stretch")
 
     export = frame[
         ["time", "city", "european_aqi", "aqi_band", "pm2_5", "pm10",
