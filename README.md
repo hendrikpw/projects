@@ -17,6 +17,7 @@ app automatically.
 |---|---|---|
 | [Job Market Analytics Dashboard](./job-market-analytics-dashboard) | Streamlit dashboard that collects job postings from the Arbeitnow API and analyzes labor-market demand by keyword, location, company, remote status, and skills. | Python, Streamlit, Pandas, Plotly, API ingestion |
 | [European Air Quality Intelligence](./air_quality_intelligence) | Live seven-day city comparison for European AQI, pollutant drivers, poor-air hours and exportable forecasts. | Python, Streamlit, Pandas, Plotly, Open-Meteo/CAMS |
+| [Energy Transition Intelligence](./energy_transition_intelligence) | European transition benchmark with a transparent composite score, K-means peer groups, PCA projection and an interactive scenario lab. | Python, Streamlit, World Bank API, scikit-learn, Plotly |
 
 ## Repository structure
 
@@ -25,6 +26,7 @@ projects/
 ├── .streamlit/
 │   └── config.toml
 ├── air_quality_intelligence/
+├── energy_transition_intelligence/
 ├── job-market-analytics-dashboard/
 ├── portfolio_pages/
 ├── streamlit_app.py
