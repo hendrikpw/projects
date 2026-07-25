@@ -5,6 +5,7 @@ from __future__ import annotations
 import streamlit as st
 
 from air_quality_intelligence.ui import render_dashboard as render_air_quality
+from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
 
@@ -42,8 +43,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–02</div>
-          <h2>Two live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–03</div>
+          <h2>Three live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -71,6 +72,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--energy">
+            <div class="project-index">03 / TRANSITION INTELLIGENCE</div>
+            <div>
+              <h3>Energy Transition</h3>
+              <p>Benchmark European transition profiles, discover peer groups and simulate measurable improvements.</p>
+              <div class="project-meta">
+                <span>World Bank</span><span>K-means</span><span>PCA</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -86,7 +97,12 @@ with st.sidebar:
     st.caption("Interactive portfolio · 2026")
     page = st.radio(
         "Navigate",
-        ["Portfolio home", "Air Quality Intelligence", "Job Market Analytics"],
+        [
+            "Portfolio home",
+            "Air Quality Intelligence",
+            "Job Market Analytics",
+            "Energy Transition Intelligence",
+        ],
         label_visibility="collapsed",
     )
     st.divider()
@@ -102,5 +118,7 @@ if page == "Air Quality Intelligence":
     render_air_quality()
 elif page == "Job Market Analytics":
     render_job_market()
+elif page == "Energy Transition Intelligence":
+    render_energy_transition()
 else:
     render_home()
