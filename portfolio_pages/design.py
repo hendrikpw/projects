@@ -183,7 +183,7 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
 /* Project panels */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   margin: 0 0 clamp(4rem, 8vw, 8rem);
   background: var(--line);
@@ -213,7 +213,8 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
   transition: transform .7s var(--ease), border-color .35s var(--ease);
 }
 .project-card--air::after,
-.project-card--jobs::after {
+.project-card--jobs::after,
+.project-card--energy::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -225,6 +226,11 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
 }
 .project-card--jobs::after {
   background: linear-gradient(135deg, transparent 58%, rgba(255,255,255,.06));
+}
+.project-card--energy::after {
+  background:
+    linear-gradient(145deg, transparent 45%, rgba(229,72,77,.12)),
+    radial-gradient(circle at 78% 82%, rgba(255,255,255,.08), transparent 26%);
 }
 .project-card:hover { background: var(--surface-raised); transform: translateY(-4px); }
 .project-card:hover::before { transform: scale(1.08); border-color: rgba(255,255,255,.28); }
@@ -403,6 +409,7 @@ hr { border-color: var(--line) !important; }
   animation: pageEnter .7s var(--ease) both;
 }
 .project-card:nth-child(2) { animation-delay: .09s; }
+.project-card:nth-child(3) { animation-delay: .18s; }
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
@@ -437,6 +444,9 @@ hr { border-color: var(--line) !important; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card { min-height: 340px; }
   .page-hero { padding: 1.6rem; min-height: 390px; }
+}
+@media (min-width: 781px) and (max-width: 1180px) {
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 </style>
 """
