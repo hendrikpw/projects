@@ -41,7 +41,11 @@ def prepare_frame(frame: pd.DataFrame) -> pd.DataFrame:
     normalized["PM10"] = result["pm10"] / 50.0
     normalized["NO₂"] = result["nitrogen_dioxide"] / 120.0
     normalized["O₃"] = result["ozone"] / 130.0
-    result["dominant_pollutant"] = normalized.idxmax(axis=1)
+    result["dominant_pollutant"] = "Unknown"
+    has_pollutant_value = normalized.notna().any(axis=1)
+    result.loc[has_pollutant_value, "dominant_pollutant"] = normalized.loc[
+        has_pollutant_value
+    ].idxmax(axis=1)
     return result
 
 
