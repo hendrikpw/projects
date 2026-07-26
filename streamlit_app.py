@@ -6,6 +6,7 @@ import streamlit as st
 
 from air_quality_intelligence.ui import render_dashboard as render_air_quality
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
+from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
 
@@ -43,8 +44,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–03</div>
-          <h2>Three live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–04</div>
+          <h2>Four live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -82,6 +83,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--collision">
+            <div class="project-index">04 / GEOSPATIAL SAFETY</div>
+            <div>
+              <h3>NYC Collision Risk</h3>
+              <p>Map collision concentrations, detect unusual days and compare reported factors by volume and severity.</p>
+              <div class="project-meta">
+                <span>NYC Open Data</span><span>Geoanalytics</span><span>MAD</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -102,6 +113,7 @@ with st.sidebar:
             "Air Quality Intelligence",
             "Job Market Analytics",
             "Energy Transition Intelligence",
+            "NYC Collision Risk Intelligence",
         ],
         label_visibility="collapsed",
     )
@@ -120,5 +132,7 @@ elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
     render_energy_transition()
+elif page == "NYC Collision Risk Intelligence":
+    render_nyc_collisions()
 else:
     render_home()
