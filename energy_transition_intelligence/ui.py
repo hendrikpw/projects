@@ -76,7 +76,7 @@ def render_dashboard() -> None:
             "deterministic synthetic demo dataset; it is never presented as observed data."
         )
     else:
-        st.success("Live World Bank data loaded successfully.", icon="✓")
+        st.success("Live World Bank data loaded successfully.", icon="✅")
 
     snapshot = latest_snapshot(data)
     available_countries = sorted(snapshot["country"].tolist())
