@@ -1,0 +1,15 @@
+"""Standalone Streamlit entrypoint for NYC Collision Risk Intelligence."""
+
+import streamlit as st
+
+from nyc_collision_intelligence.ui import render_dashboard
+from portfolio_pages.design import inject_design_system
+
+
+st.set_page_config(
+    page_title="NYC Collision Risk Intelligence",
+    page_icon="◇",
+    layout="wide",
+)
+inject_design_system()
+render_dashboard()
