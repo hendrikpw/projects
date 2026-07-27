@@ -215,7 +215,8 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
 .project-card--air::after,
 .project-card--jobs::after,
 .project-card--energy::after,
-.project-card--collision::after {
+.project-card--collision::after,
+.project-card--seismic::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -241,6 +242,19 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
       rgba(229,72,77,.13) 0 1px,
       transparent 1px 34px
     );
+}
+.project-card--seismic::after {
+  background:
+    radial-gradient(circle at 84% 72%, rgba(229,72,77,.22), transparent 20%),
+    repeating-radial-gradient(
+      circle at 84% 72%,
+      rgba(255,255,255,.09) 0 1px,
+      transparent 1px 46px
+    );
+}
+.project-card:nth-child(5) {
+  grid-column: 1 / -1;
+  min-height: 360px;
 }
 .project-card:hover { background: var(--surface-raised); transform: translateY(-4px); }
 .project-card:hover::before { transform: scale(1.08); border-color: rgba(255,255,255,.28); }
@@ -421,6 +435,7 @@ hr { border-color: var(--line) !important; }
 .project-card:nth-child(2) { animation-delay: .09s; }
 .project-card:nth-child(3) { animation-delay: .18s; }
 .project-card:nth-child(4) { animation-delay: .27s; }
+.project-card:nth-child(5) { animation-delay: .36s; }
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
@@ -453,6 +468,7 @@ hr { border-color: var(--line) !important; }
   .hero-footer { flex-direction: column; align-items: flex-start; }
   .section-intro { grid-template-columns: 1fr; gap: 1rem; }
   .project-grid { grid-template-columns: 1fr; }
+  .project-card:nth-child(5) { grid-column: auto; }
   .project-card { min-height: 340px; }
   .page-hero { padding: 1.6rem; min-height: 390px; }
 }
