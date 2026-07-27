@@ -5,6 +5,7 @@ from __future__ import annotations
 import streamlit as st
 
 from air_quality_intelligence.ui import render_dashboard as render_air_quality
+from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
 from portfolio_pages.design import inject_design_system
@@ -44,8 +45,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–04</div>
-          <h2>Four live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–05</div>
+          <h2>Five live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -93,6 +94,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--seismic">
+            <div class="project-index">05 / SEISMIC INTELLIGENCE</div>
+            <div>
+              <h3>Global Seismic Activity</h3>
+              <p>Explore recent earthquakes through spatial sequences, focal depth, energy and magnitude-frequency behavior.</p>
+              <div class="project-meta">
+                <span>USGS</span><span>DBSCAN</span><span>GeoJSON</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -114,6 +125,7 @@ with st.sidebar:
             "Job Market Analytics",
             "Energy Transition Intelligence",
             "NYC Collision Risk Intelligence",
+            "Global Seismic Activity Intelligence",
         ],
         label_visibility="collapsed",
     )
@@ -134,5 +146,7 @@ elif page == "Energy Transition Intelligence":
     render_energy_transition()
 elif page == "NYC Collision Risk Intelligence":
     render_nyc_collisions()
+elif page == "Global Seismic Activity Intelligence":
+    render_earthquakes()
 else:
     render_home()
