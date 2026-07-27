@@ -19,6 +19,7 @@ app automatically.
 | [European Air Quality Intelligence](./air_quality_intelligence) | Live seven-day city comparison for European AQI, pollutant drivers, poor-air hours and exportable forecasts. | Python, Streamlit, Pandas, Plotly, Open-Meteo/CAMS |
 | [Energy Transition Intelligence](./energy_transition_intelligence) | European transition benchmark with a transparent composite score, K-means peer groups, PCA projection and an interactive scenario lab. | Python, Streamlit, World Bank API, scikit-learn, Plotly |
 | [NYC Collision Risk Intelligence](./nyc_collision_intelligence) | Daily geospatial safety explorer with outcome-aware hotspots, robust median/MAD anomaly alerts and reported-factor severity analysis. | Python, Streamlit, NYC Open Data, Pandas, Plotly |
+| [Global Seismic Activity Intelligence](./earthquake_intelligence) | Near-real-time earthquake explorer with physical energy features, haversine DBSCAN sequences, robust activity anomalies and Gutenberg-Richter analysis. | Python, Streamlit, USGS GeoJSON, scikit-learn, Plotly |
 
 ## Repository structure
 
@@ -28,6 +29,7 @@ projects/
 │   └── config.toml
 ├── air_quality_intelligence/
 ├── energy_transition_intelligence/
+├── earthquake_intelligence/
 ├── job-market-analytics-dashboard/
 ├── nyc_collision_intelligence/
 ├── portfolio_pages/
