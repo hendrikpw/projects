@@ -7,6 +7,7 @@ import streamlit as st
 from air_quality_intelligence.ui import render_dashboard as render_air_quality
 from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
+from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
@@ -45,8 +46,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–05</div>
-          <h2>Five live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–06</div>
+          <h2>Six live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -104,6 +105,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--inflation">
+            <div class="project-index">06 / HOUSEHOLD ECONOMICS</div>
+            <div>
+              <h3>EU Inflation & Household Basket</h3>
+              <p>Compare harmonised European inflation and decompose a transparent estimate for your own spending mix.</p>
+              <div class="project-meta">
+                <span>Eurostat</span><span>HICP</span><span>Basket model</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -126,6 +137,7 @@ with st.sidebar:
             "Energy Transition Intelligence",
             "NYC Collision Risk Intelligence",
             "Global Seismic Activity Intelligence",
+            "EU Inflation & Household Basket",
         ],
         label_visibility="collapsed",
     )
@@ -148,5 +160,7 @@ elif page == "NYC Collision Risk Intelligence":
     render_nyc_collisions()
 elif page == "Global Seismic Activity Intelligence":
     render_earthquakes()
+elif page == "EU Inflation & Household Basket":
+    render_eu_inflation()
 else:
     render_home()
