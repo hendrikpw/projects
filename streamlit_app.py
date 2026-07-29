@@ -9,6 +9,7 @@ from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
 from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
+from orbital_launch_intelligence.ui import render_dashboard as render_orbital_launches
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
 
@@ -46,8 +47,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–06</div>
-          <h2>Six live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–07</div>
+          <h2>Seven live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -115,6 +116,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--launch">
+            <div class="project-index">07 / SPACEFLIGHT OPERATIONS</div>
+            <div>
+              <h3>Orbital Launch Reliability</h3>
+              <p>Benchmark launch providers with uncertainty-aware reliability, cadence, concentration and a live mission board.</p>
+              <div class="project-meta">
+                <span>Launch Library 2</span><span>Wilson interval</span><span>HHI</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -138,6 +149,7 @@ with st.sidebar:
             "NYC Collision Risk Intelligence",
             "Global Seismic Activity Intelligence",
             "EU Inflation & Household Basket",
+            "Orbital Launch Reliability Intelligence",
         ],
         label_visibility="collapsed",
     )
@@ -162,5 +174,7 @@ elif page == "Global Seismic Activity Intelligence":
     render_earthquakes()
 elif page == "EU Inflation & Household Basket":
     render_eu_inflation()
+elif page == "Orbital Launch Reliability Intelligence":
+    render_orbital_launches()
 else:
     render_home()
