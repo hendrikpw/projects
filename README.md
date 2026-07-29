@@ -21,6 +21,7 @@ app automatically.
 | [NYC Collision Risk Intelligence](./nyc_collision_intelligence) | Daily geospatial safety explorer with outcome-aware hotspots, robust median/MAD anomaly alerts and reported-factor severity analysis. | Python, Streamlit, NYC Open Data, Pandas, Plotly |
 | [Global Seismic Activity Intelligence](./earthquake_intelligence) | Near-real-time earthquake explorer with physical energy features, haversine DBSCAN sequences, robust activity anomalies and Gutenberg-Richter analysis. | Python, Streamlit, USGS GeoJSON, scikit-learn, Plotly |
 | [EU Inflation & Household Basket Intelligence](./eu_inflation_intelligence) | Harmonised European inflation comparison with category pressure, a transparent personal-basket estimator and contribution analysis. | Python, Streamlit, Eurostat JSON-stat API, Pandas, Plotly |
+| [Orbital Launch Reliability Intelligence](./orbital_launch_intelligence) | Global launch operations explorer with Wilson reliability intervals, cadence, provider concentration, launch-pad geography and upcoming missions. | Python, Streamlit, Launch Library 2, Pandas, Plotly |
 
 ## Repository structure
 
@@ -34,6 +35,7 @@ projects/
 ├── eu_inflation_intelligence/
 ├── job-market-analytics-dashboard/
 ├── nyc_collision_intelligence/
+├── orbital_launch_intelligence/
 ├── portfolio_pages/
 ├── streamlit_app.py
 ├── requirements.txt
