@@ -22,6 +22,7 @@ app automatically.
 | [Global Seismic Activity Intelligence](./earthquake_intelligence) | Near-real-time earthquake explorer with physical energy features, haversine DBSCAN sequences, robust activity anomalies and Gutenberg-Richter analysis. | Python, Streamlit, USGS GeoJSON, scikit-learn, Plotly |
 | [EU Inflation & Household Basket Intelligence](./eu_inflation_intelligence) | Harmonised European inflation comparison with category pressure, a transparent personal-basket estimator and contribution analysis. | Python, Streamlit, Eurostat JSON-stat API, Pandas, Plotly |
 | [Orbital Launch Reliability Intelligence](./orbital_launch_intelligence) | Global launch operations explorer with Wilson reliability intervals, cadence, provider concentration, launch-pad geography and upcoming missions. | Python, Streamlit, Launch Library 2, Pandas, Plotly |
+| [Food Label & Product Choice Intelligence](./food_label_intelligence) | Packaged-food comparison with an explainable preference score, nutrient similarity, brand analytics and explicit missing-data audits. | Python, Streamlit, Open Food Facts, Pandas, Plotly |
 
 ## Repository structure
 
@@ -33,6 +34,7 @@ projects/
 ├── energy_transition_intelligence/
 ├── earthquake_intelligence/
 ├── eu_inflation_intelligence/
+├── food_label_intelligence/
 ├── job-market-analytics-dashboard/
 ├── nyc_collision_intelligence/
 ├── orbital_launch_intelligence/
