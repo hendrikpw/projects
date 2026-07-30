@@ -8,6 +8,7 @@ from air_quality_intelligence.ui import render_dashboard as render_air_quality
 from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
 from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
+from food_label_intelligence.ui import render_dashboard as render_food_labels
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
 from orbital_launch_intelligence.ui import render_dashboard as render_orbital_launches
 from portfolio_pages.design import inject_design_system
@@ -47,8 +48,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–07</div>
-          <h2>Seven live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–08</div>
+          <h2>Eight live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -126,6 +127,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--food">
+            <div class="project-index">08 / CONSUMER PRODUCT INTELLIGENCE</div>
+            <div>
+              <h3>Food Label & Product Choice</h3>
+              <p>Compare packaged-food labels, audit missing data and discover similar nutrition profiles with visible priorities.</p>
+              <div class="project-meta">
+                <span>Open Food Facts</span><span>Percentiles</span><span>Similarity</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -150,6 +161,7 @@ with st.sidebar:
             "Global Seismic Activity Intelligence",
             "EU Inflation & Household Basket",
             "Orbital Launch Reliability Intelligence",
+            "Food Label & Product Choice Intelligence",
         ],
         label_visibility="collapsed",
     )
@@ -176,5 +188,7 @@ elif page == "EU Inflation & Household Basket":
     render_eu_inflation()
 elif page == "Orbital Launch Reliability Intelligence":
     render_orbital_launches()
+elif page == "Food Label & Product Choice Intelligence":
+    render_food_labels()
 else:
     render_home()
