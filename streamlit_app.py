@@ -5,6 +5,7 @@ from __future__ import annotations
 import streamlit as st
 
 from air_quality_intelligence.ui import render_dashboard as render_air_quality
+from cyber_vulnerability_intelligence.ui import render_dashboard as render_cyber_vulnerabilities
 from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
 from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
@@ -48,8 +49,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–08</div>
-          <h2>Eight live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–09</div>
+          <h2>Nine live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -137,6 +138,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--cyber">
+            <div class="project-index">09 / CYBERSECURITY OPERATIONS</div>
+            <div>
+              <h3>Cyber Vulnerability Prioritization</h3>
+              <p>Order confirmed exploited vulnerabilities with current EPSS, deadlines, ransomware signals and delivery capacity.</p>
+              <div class="project-meta">
+                <span>CISA KEV</span><span>FIRST EPSS</span><span>TF-IDF</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -162,6 +173,7 @@ with st.sidebar:
             "EU Inflation & Household Basket",
             "Orbital Launch Reliability Intelligence",
             "Food Label & Product Choice Intelligence",
+            "Cyber Vulnerability Prioritization Intelligence",
         ],
         label_visibility="collapsed",
     )
@@ -190,5 +202,7 @@ elif page == "Orbital Launch Reliability Intelligence":
     render_orbital_launches()
 elif page == "Food Label & Product Choice Intelligence":
     render_food_labels()
+elif page == "Cyber Vulnerability Prioritization Intelligence":
+    render_cyber_vulnerabilities()
 else:
     render_home()
