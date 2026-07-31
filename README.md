@@ -23,6 +23,7 @@ app automatically.
 | [EU Inflation & Household Basket Intelligence](./eu_inflation_intelligence) | Harmonised European inflation comparison with category pressure, a transparent personal-basket estimator and contribution analysis. | Python, Streamlit, Eurostat JSON-stat API, Pandas, Plotly |
 | [Orbital Launch Reliability Intelligence](./orbital_launch_intelligence) | Global launch operations explorer with Wilson reliability intervals, cadence, provider concentration, launch-pad geography and upcoming missions. | Python, Streamlit, Launch Library 2, Pandas, Plotly |
 | [Food Label & Product Choice Intelligence](./food_label_intelligence) | Packaged-food comparison with an explainable preference score, nutrient similarity, brand analytics and explicit missing-data audits. | Python, Streamlit, Open Food Facts, Pandas, Plotly |
+| [Cyber Vulnerability Prioritization Intelligence](./cyber_vulnerability_intelligence) | Confirmed-exploitation triage with current EPSS, transparent urgency scoring, remediation-capacity scenarios and TF-IDF related-record retrieval. | Python, Streamlit, CISA KEV, FIRST EPSS, scikit-learn, Plotly |
 
 ## Repository structure
 
@@ -31,6 +32,7 @@ projects/
 ├── .streamlit/
 │   └── config.toml
 ├── air_quality_intelligence/
+├── cyber_vulnerability_intelligence/
 ├── energy_transition_intelligence/
 ├── earthquake_intelligence/
 ├── eu_inflation_intelligence/
