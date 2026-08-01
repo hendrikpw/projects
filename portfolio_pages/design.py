@@ -220,12 +220,23 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
 .project-card--inflation::after,
 .project-card--launch::after,
 .project-card--food::after,
-.project-card--cyber::after {
+.project-card--cyber::after,
+.project-card--fx::after {
   content: "";
   position: absolute;
   inset: 0;
   opacity: .44;
   pointer-events: none;
+}
+.project-card--fx::after {
+  background:
+    linear-gradient(155deg, transparent 46%, rgba(229,72,77,.13)),
+    repeating-linear-gradient(
+      115deg,
+      transparent 0 54px,
+      rgba(255,255,255,.065) 54px 55px
+    );
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 .project-card--air::after {
   background: radial-gradient(circle at 90% 95%, rgba(229,72,77,.40), transparent 32%);
@@ -479,6 +490,7 @@ hr { border-color: var(--line) !important; }
 .project-card:nth-child(7) { animation-delay: .54s; }
 .project-card:nth-child(8) { animation-delay: .63s; }
 .project-card:nth-child(9) { animation-delay: .72s; }
+.project-card:nth-child(10) { animation-delay: .81s; }
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
