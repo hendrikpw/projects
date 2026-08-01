@@ -10,6 +10,7 @@ from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
 from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
 from food_label_intelligence.ui import render_dashboard as render_food_labels
+from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
 from orbital_launch_intelligence.ui import render_dashboard as render_orbital_launches
 from portfolio_pages.design import inject_design_system
@@ -49,8 +50,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–09</div>
-          <h2>Nine live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–10</div>
+          <h2>Ten live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -148,6 +149,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--fx">
+            <div class="project-index">10 / FINANCIAL MARKET INTELLIGENCE</div>
+            <div>
+              <h3>FX Market Regime Intelligence</h3>
+              <p>Monitor euro reference rates, detect unusual sessions and translate volatility into transparent exposure scenarios.</p>
+              <div class="project-meta">
+                <span>ECB</span><span>Isolation Forest</span><span>Risk analytics</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -174,6 +185,7 @@ with st.sidebar:
             "Orbital Launch Reliability Intelligence",
             "Food Label & Product Choice Intelligence",
             "Cyber Vulnerability Prioritization Intelligence",
+            "FX Market Regime Intelligence",
         ],
         label_visibility="collapsed",
     )
@@ -204,5 +216,7 @@ elif page == "Food Label & Product Choice Intelligence":
     render_food_labels()
 elif page == "Cyber Vulnerability Prioritization Intelligence":
     render_cyber_vulnerabilities()
+elif page == "FX Market Regime Intelligence":
+    render_fx_regimes()
 else:
     render_home()
