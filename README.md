@@ -24,6 +24,7 @@ app automatically.
 | [Orbital Launch Reliability Intelligence](./orbital_launch_intelligence) | Global launch operations explorer with Wilson reliability intervals, cadence, provider concentration, launch-pad geography and upcoming missions. | Python, Streamlit, Launch Library 2, Pandas, Plotly |
 | [Food Label & Product Choice Intelligence](./food_label_intelligence) | Packaged-food comparison with an explainable preference score, nutrient similarity, brand analytics and explicit missing-data audits. | Python, Streamlit, Open Food Facts, Pandas, Plotly |
 | [Cyber Vulnerability Prioritization Intelligence](./cyber_vulnerability_intelligence) | Confirmed-exploitation triage with current EPSS, transparent urgency scoring, remediation-capacity scenarios and TF-IDF related-record retrieval. | Python, Streamlit, CISA KEV, FIRST EPSS, scikit-learn, Plotly |
+| [FX Market Regime Intelligence](./fx_regime_intelligence) | Daily euro reference-rate monitor with expanding volatility regimes, Isolation Forest anomalies, behavior clusters and exposure scenarios. | Python, Streamlit, ECB Data API, scikit-learn, Plotly |
 
 ## Repository structure
 
@@ -37,6 +38,7 @@ projects/
 ├── earthquake_intelligence/
 ├── eu_inflation_intelligence/
 ├── food_label_intelligence/
+├── fx_regime_intelligence/
 ├── job-market-analytics-dashboard/
 ├── nyc_collision_intelligence/
 ├── orbital_launch_intelligence/
