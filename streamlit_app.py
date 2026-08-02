@@ -5,6 +5,7 @@ from __future__ import annotations
 import streamlit as st
 
 from air_quality_intelligence.ui import render_dashboard as render_air_quality
+from biodiversity_observation_intelligence.ui import render_dashboard as render_biodiversity
 from cyber_vulnerability_intelligence.ui import render_dashboard as render_cyber_vulnerabilities
 from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
@@ -50,8 +51,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–10</div>
-          <h2>Ten live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–11</div>
+          <h2>Eleven live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -159,6 +160,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--biodiversity">
+            <div class="project-index">11 / BIODIVERSITY DATA INTELLIGENCE</div>
+            <div>
+              <h3>Biodiversity Observation Intelligence</h3>
+              <p>Compare European species records, reveal observation concentration and audit the quality behind every spatial pattern.</p>
+              <div class="project-meta">
+                <span>GBIF</span><span>DBSCAN</span><span>Data quality</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -186,6 +197,7 @@ with st.sidebar:
             "Food Label & Product Choice Intelligence",
             "Cyber Vulnerability Prioritization Intelligence",
             "FX Market Regime Intelligence",
+            "Biodiversity Observation Intelligence",
         ],
         label_visibility="collapsed",
     )
@@ -200,6 +212,8 @@ with st.sidebar:
 
 if page == "Air Quality Intelligence":
     render_air_quality()
+elif page == "Biodiversity Observation Intelligence":
+    render_biodiversity()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
