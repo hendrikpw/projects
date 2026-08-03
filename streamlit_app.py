@@ -13,6 +13,7 @@ from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
 from food_label_intelligence.ui import render_dashboard as render_food_labels
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
+from open_source_health_intelligence.ui import render_dashboard as render_open_source_health
 from orbital_launch_intelligence.ui import render_dashboard as render_orbital_launches
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
@@ -51,8 +52,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–11</div>
-          <h2>Eleven live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–12</div>
+          <h2>Twelve live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -170,6 +171,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--health">
+            <div class="project-index">12 / SOFTWARE DELIVERY INTELLIGENCE</div>
+            <div>
+              <h3>Open Source Repository Health</h3>
+              <p>Audit delivery flow, censored resolution times, backlog age, contributor concentration and release rhythm.</p>
+              <div class="project-meta">
+                <span>GitHub REST</span><span>Kaplan–Meier</span><span>HHI</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -198,6 +209,7 @@ with st.sidebar:
             "Cyber Vulnerability Prioritization Intelligence",
             "FX Market Regime Intelligence",
             "Biodiversity Observation Intelligence",
+            "Open Source Repository Health Intelligence",
         ],
         label_visibility="collapsed",
     )
@@ -214,6 +226,8 @@ if page == "Air Quality Intelligence":
     render_air_quality()
 elif page == "Biodiversity Observation Intelligence":
     render_biodiversity()
+elif page == "Open Source Repository Health Intelligence":
+    render_open_source_health()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
