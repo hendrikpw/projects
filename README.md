@@ -26,6 +26,7 @@ app automatically.
 | [Cyber Vulnerability Prioritization Intelligence](./cyber_vulnerability_intelligence) | Confirmed-exploitation triage with current EPSS, transparent urgency scoring, remediation-capacity scenarios and TF-IDF related-record retrieval. | Python, Streamlit, CISA KEV, FIRST EPSS, scikit-learn, Plotly |
 | [FX Market Regime Intelligence](./fx_regime_intelligence) | Daily euro reference-rate monitor with expanding volatility regimes, Isolation Forest anomalies, behavior clusters and exposure scenarios. | Python, Streamlit, ECB Data API, scikit-learn, Plotly |
 | [Biodiversity Observation Intelligence](./biodiversity_observation_intelligence) | European species-occurrence explorer with GBIF taxonomy, full-query reporting facets, haversine DBSCAN and provenance-aware quality audits. | Python, Streamlit, GBIF, Darwin Core, scikit-learn, Plotly |
+| [Open Source Repository Health Intelligence](./open_source_health_intelligence) | Public GitHub delivery workbench with censoring-aware resolution curves, backlog aging, contributor concentration and release cadence. | Python, Streamlit, GitHub REST API, Kaplan–Meier, Plotly |
 
 ## Repository structure
 
@@ -43,6 +44,7 @@ projects/
 ├── fx_regime_intelligence/
 ├── job-market-analytics-dashboard/
 ├── nyc_collision_intelligence/
+├── open_source_health_intelligence/
 ├── orbital_launch_intelligence/
 ├── portfolio_pages/
 ├── streamlit_app.py
