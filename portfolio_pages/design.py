@@ -222,7 +222,8 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
 .project-card--food::after,
 .project-card--cyber::after,
 .project-card--fx::after,
-.project-card--biodiversity::after {
+.project-card--biodiversity::after,
+.project-card--health::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -315,6 +316,17 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
       transparent 1px 48px
     ),
     linear-gradient(145deg, transparent 58%, rgba(255,255,255,.045));
+}
+.project-card--health::after {
+  background:
+    linear-gradient(145deg, transparent 48%, rgba(229,72,77,.13)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 36px,
+      rgba(255,255,255,.065) 36px 37px
+    ),
+    radial-gradient(circle at 80% 72%, rgba(255,255,255,.08), transparent 24%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 .project-card--cyber:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project-card--biodiversity:last-child:nth-child(odd) { grid-column: 1 / -1; }
@@ -504,6 +516,7 @@ hr { border-color: var(--line) !important; }
 .project-card:nth-child(9) { animation-delay: .72s; }
 .project-card:nth-child(10) { animation-delay: .81s; }
 .project-card:nth-child(11) { animation-delay: .90s; }
+.project-card:nth-child(12) { animation-delay: .99s; }
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
