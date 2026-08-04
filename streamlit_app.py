@@ -12,6 +12,7 @@ from energy_transition_intelligence.ui import render_dashboard as render_energy_
 from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
 from food_label_intelligence.ui import render_dashboard as render_food_labels
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
+from london_bike_rebalancing_intelligence.ui import render_dashboard as render_london_cycles
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
 from open_source_health_intelligence.ui import render_dashboard as render_open_source_health
 from orbital_launch_intelligence.ui import render_dashboard as render_orbital_launches
@@ -52,8 +53,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–12</div>
-          <h2>Twelve live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–13</div>
+          <h2>Thirteen live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -181,6 +182,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--cycle">
+            <div class="project-index">13 / URBAN MOBILITY OPERATIONS</div>
+            <div>
+              <h3>London Cycle Rebalancing</h3>
+              <p>Map live station pressure, detect spatial shortages and turn surplus bikes into a transparent move plan.</p>
+              <div class="project-meta">
+                <span>TfL BikePoint</span><span>DBSCAN</span><span>Operations</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -210,6 +221,7 @@ with st.sidebar:
             "FX Market Regime Intelligence",
             "Biodiversity Observation Intelligence",
             "Open Source Repository Health Intelligence",
+            "London Cycle Rebalancing Intelligence",
         ],
         label_visibility="collapsed",
     )
@@ -228,6 +240,8 @@ elif page == "Biodiversity Observation Intelligence":
     render_biodiversity()
 elif page == "Open Source Repository Health Intelligence":
     render_open_source_health()
+elif page == "London Cycle Rebalancing Intelligence":
+    render_london_cycles()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
