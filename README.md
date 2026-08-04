@@ -27,6 +27,7 @@ app automatically.
 | [FX Market Regime Intelligence](./fx_regime_intelligence) | Daily euro reference-rate monitor with expanding volatility regimes, Isolation Forest anomalies, behavior clusters and exposure scenarios. | Python, Streamlit, ECB Data API, scikit-learn, Plotly |
 | [Biodiversity Observation Intelligence](./biodiversity_observation_intelligence) | European species-occurrence explorer with GBIF taxonomy, full-query reporting facets, haversine DBSCAN and provenance-aware quality audits. | Python, Streamlit, GBIF, Darwin Core, scikit-learn, Plotly |
 | [Open Source Repository Health Intelligence](./open_source_health_intelligence) | Public GitHub delivery workbench with censoring-aware resolution curves, backlog aging, contributor concentration and release cadence. | Python, Streamlit, GitHub REST API, Kaplan–Meier, Plotly |
+| [London Cycle Rebalancing Intelligence](./london_bike_rebalancing_intelligence) | Live TfL cycle-hire operations workbench with service states, spatial pressure clusters and a bounded bike-transfer scenario. | Python, Streamlit, TfL BikePoint API, DBSCAN, Plotly |
 
 ## Repository structure
 
@@ -43,6 +44,7 @@ projects/
 ├── food_label_intelligence/
 ├── fx_regime_intelligence/
 ├── job-market-analytics-dashboard/
+├── london_bike_rebalancing_intelligence/
 ├── nyc_collision_intelligence/
 ├── open_source_health_intelligence/
 ├── orbital_launch_intelligence/
