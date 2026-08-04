@@ -223,7 +223,8 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
 .project-card--cyber::after,
 .project-card--fx::after,
 .project-card--biodiversity::after,
-.project-card--health::after {
+.project-card--health::after,
+.project-card--cycle::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -328,8 +329,16 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
     radial-gradient(circle at 80% 72%, rgba(255,255,255,.08), transparent 24%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
+.project-card--cycle::after {
+  background:
+    radial-gradient(circle at 76% 72%, transparent 0 45px, rgba(229,72,77,.20) 46px 48px, transparent 49px),
+    radial-gradient(circle at 90% 72%, transparent 0 45px, rgba(255,255,255,.12) 46px 48px, transparent 49px),
+    linear-gradient(150deg, transparent 49%, rgba(229,72,77,.11)),
+    repeating-linear-gradient(90deg, transparent 0 54px, rgba(255,255,255,.045) 54px 55px);
+}
 .project-card--cyber:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project-card--biodiversity:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.project-card--cycle:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project-card:hover { background: var(--surface-raised); transform: translateY(-4px); }
 .project-card:hover::before { transform: scale(1.08); border-color: rgba(255,255,255,.28); }
 .project-card > * { position: relative; z-index: 1; }
@@ -517,6 +526,7 @@ hr { border-color: var(--line) !important; }
 .project-card:nth-child(10) { animation-delay: .81s; }
 .project-card:nth-child(11) { animation-delay: .90s; }
 .project-card:nth-child(12) { animation-delay: .99s; }
+.project-card:nth-child(13) { animation-delay: 1.08s; }
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
@@ -551,6 +561,7 @@ hr { border-color: var(--line) !important; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card--cyber:last-child:nth-child(odd) { grid-column: auto; }
   .project-card--biodiversity:last-child:nth-child(odd) { grid-column: auto; }
+  .project-card--cycle:last-child:nth-child(odd) { grid-column: auto; }
   .project-card { min-height: 340px; }
   .page-hero { padding: 1.6rem; min-height: 390px; }
 }
