@@ -28,6 +28,7 @@ app automatically.
 | [Biodiversity Observation Intelligence](./biodiversity_observation_intelligence) | European species-occurrence explorer with GBIF taxonomy, full-query reporting facets, haversine DBSCAN and provenance-aware quality audits. | Python, Streamlit, GBIF, Darwin Core, scikit-learn, Plotly |
 | [Open Source Repository Health Intelligence](./open_source_health_intelligence) | Public GitHub delivery workbench with censoring-aware resolution curves, backlog aging, contributor concentration and release cadence. | Python, Streamlit, GitHub REST API, Kaplan–Meier, Plotly |
 | [London Cycle Rebalancing Intelligence](./london_bike_rebalancing_intelligence) | Live TfL cycle-hire operations workbench with service states, spatial pressure clusters and a bounded bike-transfer scenario. | Python, Streamlit, TfL BikePoint API, DBSCAN, Plotly |
+| [Research Evidence Pipeline](./research_evidence_pipeline) | Observable Bronze/Silver/Gold literature pipeline with data contracts, deterministic lineage, hybrid semantic retrieval and citation-bound evidence briefs. | Python, Streamlit, Europe PMC, TF-IDF/SVD, scikit-learn |
 
 ## Repository structure
 
@@ -49,6 +50,7 @@ projects/
 ├── open_source_health_intelligence/
 ├── orbital_launch_intelligence/
 ├── portfolio_pages/
+├── research_evidence_pipeline/
 ├── streamlit_app.py
 ├── requirements.txt
 └── README.md
@@ -56,7 +58,7 @@ projects/
 
 ## Goal
 
-The goal is to demonstrate practical data science and analytics engineering
-through useful, transparent mini-products: API ingestion, transformation,
-exploratory analysis, metric design, dashboarding, resilient error handling,
-testing and cloud-ready delivery.
+The goal is to demonstrate practical Data Engineering, AI Engineering and data
+science through useful, transparent mini-products: API ingestion, data contracts,
+transformation, observability, retrieval and model evaluation, exploratory analysis,
+resilient error handling, testing and cloud-ready delivery.
