@@ -18,6 +18,7 @@ from open_source_health_intelligence.ui import render_dashboard as render_open_s
 from orbital_launch_intelligence.ui import render_dashboard as render_orbital_launches
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
+from research_evidence_pipeline.ui import render_dashboard as render_research_evidence
 
 
 st.set_page_config(
@@ -53,8 +54,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–13</div>
-          <h2>Thirteen live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–14</div>
+          <h2>Fourteen live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -192,6 +193,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--evidence">
+            <div class="project-index">14 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Research Evidence Pipeline</h3>
+              <p>Turn live scientific metadata into a contracted data product and an evaluated, citation-bound evidence engine.</p>
+              <div class="project-meta">
+                <span>Europe PMC</span><span>Data contracts</span><span>Semantic retrieval</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -222,6 +233,7 @@ with st.sidebar:
             "Biodiversity Observation Intelligence",
             "Open Source Repository Health Intelligence",
             "London Cycle Rebalancing Intelligence",
+            "Research Evidence Pipeline",
         ],
         label_visibility="collapsed",
     )
@@ -242,6 +254,8 @@ elif page == "Open Source Repository Health Intelligence":
     render_open_source_health()
 elif page == "London Cycle Rebalancing Intelligence":
     render_london_cycles()
+elif page == "Research Evidence Pipeline":
+    render_research_evidence()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
