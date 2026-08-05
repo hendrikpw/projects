@@ -224,7 +224,8 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
 .project-card--fx::after,
 .project-card--biodiversity::after,
 .project-card--health::after,
-.project-card--cycle::after {
+.project-card--cycle::after,
+.project-card--evidence::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -335,6 +336,14 @@ p, label, [data-testid="stCaptionContainer"] { color: var(--muted); }
     radial-gradient(circle at 90% 72%, transparent 0 45px, rgba(255,255,255,.12) 46px 48px, transparent 49px),
     linear-gradient(150deg, transparent 49%, rgba(229,72,77,.11)),
     repeating-linear-gradient(90deg, transparent 0 54px, rgba(255,255,255,.045) 54px 55px);
+}
+.project-card--evidence::after {
+  background:
+    linear-gradient(90deg, transparent 18%, rgba(229,72,77,.16) 18.2%, transparent 18.5%),
+    linear-gradient(90deg, transparent 49%, rgba(255,255,255,.09) 49.2%, transparent 49.5%),
+    linear-gradient(90deg, transparent 80%, rgba(229,72,77,.10) 80.2%, transparent 80.5%),
+    repeating-linear-gradient(0deg, transparent 0 42px, rgba(255,255,255,.05) 42px 43px),
+    radial-gradient(circle at 80% 72%, rgba(229,72,77,.18), transparent 24%);
 }
 .project-card--cyber:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project-card--biodiversity:last-child:nth-child(odd) { grid-column: 1 / -1; }
@@ -527,6 +536,7 @@ hr { border-color: var(--line) !important; }
 .project-card:nth-child(11) { animation-delay: .90s; }
 .project-card:nth-child(12) { animation-delay: .99s; }
 .project-card:nth-child(13) { animation-delay: 1.08s; }
+.project-card:nth-child(14) { animation-delay: 1.17s; }
 
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
