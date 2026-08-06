@@ -6,6 +6,7 @@ import streamlit as st
 
 from air_quality_intelligence.ui import render_dashboard as render_air_quality
 from biodiversity_observation_intelligence.ui import render_dashboard as render_biodiversity
+from clinical_trial_ops_pipeline.ui import render_dashboard as render_clinical_trials
 from cyber_vulnerability_intelligence.ui import render_dashboard as render_cyber_vulnerabilities
 from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
@@ -54,8 +55,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–14</div>
-          <h2>Fourteen live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–15</div>
+          <h2>Fifteen live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -203,6 +204,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--trial">
+            <div class="project-index">15 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Clinical Trial Operations ML</h3>
+              <p>Contract public trial snapshots, validate an explainable discontinuation model and monitor calibration and drift.</p>
+              <div class="project-meta">
+                <span>ClinicalTrials.gov</span><span>Data contracts</span><span>Model monitoring</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -234,6 +245,7 @@ with st.sidebar:
             "Open Source Repository Health Intelligence",
             "London Cycle Rebalancing Intelligence",
             "Research Evidence Pipeline",
+            "Clinical Trial Operations ML Pipeline",
         ],
         label_visibility="collapsed",
     )
@@ -256,6 +268,8 @@ elif page == "London Cycle Rebalancing Intelligence":
     render_london_cycles()
 elif page == "Research Evidence Pipeline":
     render_research_evidence()
+elif page == "Clinical Trial Operations ML Pipeline":
+    render_clinical_trials()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":

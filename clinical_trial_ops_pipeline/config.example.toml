@@ -1,0 +1,6 @@
+# Safe local defaults; the application requires no secrets.
+default_condition = "type 2 diabetes"
+snapshot_size = 240
+cache_ttl_seconds = 21600
+model_threshold = 0.50
+max_api_attempts = 2

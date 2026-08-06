@@ -29,6 +29,7 @@ app automatically.
 | [Open Source Repository Health Intelligence](./open_source_health_intelligence) | Public GitHub delivery workbench with censoring-aware resolution curves, backlog aging, contributor concentration and release cadence. | Python, Streamlit, GitHub REST API, Kaplan–Meier, Plotly |
 | [London Cycle Rebalancing Intelligence](./london_bike_rebalancing_intelligence) | Live TfL cycle-hire operations workbench with service states, spatial pressure clusters and a bounded bike-transfer scenario. | Python, Streamlit, TfL BikePoint API, DBSCAN, Plotly |
 | [Research Evidence Pipeline](./research_evidence_pipeline) | Observable Bronze/Silver/Gold literature pipeline with data contracts, deterministic lineage, hybrid semantic retrieval and citation-bound evidence briefs. | Python, Streamlit, Europe PMC, TF-IDF/SVD, scikit-learn |
+| [Clinical Trial Operations ML Pipeline](./clinical_trial_ops_pipeline) | Content-addressed trial-registry pipeline with typed contracts, leakage-aware features, time-aware classification, calibration and drift monitoring. | Python, Streamlit, ClinicalTrials.gov API v2, scikit-learn, Plotly |
 
 ## Repository structure
 
@@ -39,6 +40,7 @@ projects/
 ├── air_quality_intelligence/
 ├── biodiversity_observation_intelligence/
 ├── cyber_vulnerability_intelligence/
+├── clinical_trial_ops_pipeline/
 ├── energy_transition_intelligence/
 ├── earthquake_intelligence/
 ├── eu_inflation_intelligence/
