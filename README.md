@@ -30,6 +30,7 @@ app automatically.
 | [London Cycle Rebalancing Intelligence](./london_bike_rebalancing_intelligence) | Live TfL cycle-hire operations workbench with service states, spatial pressure clusters and a bounded bike-transfer scenario. | Python, Streamlit, TfL BikePoint API, DBSCAN, Plotly |
 | [Research Evidence Pipeline](./research_evidence_pipeline) | Observable Bronze/Silver/Gold literature pipeline with data contracts, deterministic lineage, hybrid semantic retrieval and citation-bound evidence briefs. | Python, Streamlit, Europe PMC, TF-IDF/SVD, scikit-learn |
 | [Clinical Trial Operations ML Pipeline](./clinical_trial_ops_pipeline) | Content-addressed trial-registry pipeline with typed contracts, leakage-aware features, time-aware classification, calibration and drift monitoring. | Python, Streamlit, ClinicalTrials.gov API v2, scikit-learn, Plotly |
+| [FDA Recall Triage Pipeline](./fda_recall_nlp_pipeline) | Multi-source enforcement pipeline with content hashes, typed contracts, quarantine, evaluated multi-class NLP, drift monitoring and confidence abstention. | Python, Streamlit, openFDA/RES, TF-IDF, scikit-learn, Plotly |
 
 ## Repository structure
 
@@ -44,6 +45,7 @@ projects/
 ├── energy_transition_intelligence/
 ├── earthquake_intelligence/
 ├── eu_inflation_intelligence/
+├── fda_recall_nlp_pipeline/
 ├── food_label_intelligence/
 ├── fx_regime_intelligence/
 ├── job-market-analytics-dashboard/

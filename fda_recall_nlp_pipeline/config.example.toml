@@ -1,0 +1,10 @@
+[pipeline]
+domains = ["food", "drug", "device"]
+snapshot_size = 360
+request_timeout_seconds = 20
+retry_attempts = 2
+
+[model]
+holdout_share = 0.25
+random_state = 42
+default_abstention_threshold = 0.55

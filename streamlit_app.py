@@ -11,6 +11,7 @@ from cyber_vulnerability_intelligence.ui import render_dashboard as render_cyber
 from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
 from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
+from fda_recall_nlp_pipeline.ui import render_dashboard as render_fda_recalls
 from food_label_intelligence.ui import render_dashboard as render_food_labels
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
 from london_bike_rebalancing_intelligence.ui import render_dashboard as render_london_cycles
@@ -55,8 +56,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–15</div>
-          <h2>Fifteen live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–16</div>
+          <h2>Sixteen live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -214,6 +215,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--fda">
+            <div class="project-index">16 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>FDA Recall Triage Pipeline</h3>
+              <p>Contract three enforcement streams, audit quarantine and evaluate confidence-aware NLP with explicit deferral.</p>
+              <div class="project-meta">
+                <span>openFDA</span><span>Data contracts</span><span>Selective NLP</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -246,6 +257,7 @@ with st.sidebar:
             "London Cycle Rebalancing Intelligence",
             "Research Evidence Pipeline",
             "Clinical Trial Operations ML Pipeline",
+            "FDA Recall Triage Pipeline",
         ],
         label_visibility="collapsed",
     )
@@ -270,6 +282,8 @@ elif page == "Research Evidence Pipeline":
     render_research_evidence()
 elif page == "Clinical Trial Operations ML Pipeline":
     render_clinical_trials()
+elif page == "FDA Recall Triage Pipeline":
+    render_fda_recalls()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
