@@ -31,6 +31,7 @@ app automatically.
 | [Research Evidence Pipeline](./research_evidence_pipeline) | Observable Bronze/Silver/Gold literature pipeline with data contracts, deterministic lineage, hybrid semantic retrieval and citation-bound evidence briefs. | Python, Streamlit, Europe PMC, TF-IDF/SVD, scikit-learn |
 | [Clinical Trial Operations ML Pipeline](./clinical_trial_ops_pipeline) | Content-addressed trial-registry pipeline with typed contracts, leakage-aware features, time-aware classification, calibration and drift monitoring. | Python, Streamlit, ClinicalTrials.gov API v2, scikit-learn, Plotly |
 | [FDA Recall Triage Pipeline](./fda_recall_nlp_pipeline) | Multi-source enforcement pipeline with content hashes, typed contracts, quarantine, evaluated multi-class NLP, drift monitoring and confidence abstention. | Python, Streamlit, openFDA/RES, TF-IDF, scikit-learn, Plotly |
+| [Wikipedia Attention Forecast Pipeline](./wikipedia_attention_pipeline) | Event-time pageview pipeline with micro-batch replay, watermarks, quarantine, rolling-origin forecasting, conformal intervals and anomaly review. | Python, Streamlit, Wikimedia Analytics, gradient boosting, Plotly |
 
 ## Repository structure
 
@@ -55,6 +56,7 @@ projects/
 ├── orbital_launch_intelligence/
 ├── portfolio_pages/
 ├── research_evidence_pipeline/
+├── wikipedia_attention_pipeline/
 ├── streamlit_app.py
 ├── requirements.txt
 └── README.md

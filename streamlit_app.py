@@ -21,6 +21,7 @@ from orbital_launch_intelligence.ui import render_dashboard as render_orbital_la
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
 from research_evidence_pipeline.ui import render_dashboard as render_research_evidence
+from wikipedia_attention_pipeline.ui import render_dashboard as render_wikipedia_attention
 
 
 st.set_page_config(
@@ -56,8 +57,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–16</div>
-          <h2>Sixteen live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–17</div>
+          <h2>Seventeen live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -225,6 +226,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--wiki">
+            <div class="project-index">17 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Wikipedia Attention Forecast</h3>
+              <p>Replay delayed daily signals through watermarks, then backtest forecasts, uncertainty and anomaly review.</p>
+              <div class="project-meta">
+                <span>Wikimedia</span><span>Event time</span><span>Conformal forecast</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -258,6 +269,7 @@ with st.sidebar:
             "Research Evidence Pipeline",
             "Clinical Trial Operations ML Pipeline",
             "FDA Recall Triage Pipeline",
+            "Wikipedia Attention Forecast Pipeline",
         ],
         label_visibility="collapsed",
     )
@@ -284,6 +296,8 @@ elif page == "Clinical Trial Operations ML Pipeline":
     render_clinical_trials()
 elif page == "FDA Recall Triage Pipeline":
     render_fda_recalls()
+elif page == "Wikipedia Attention Forecast Pipeline":
+    render_wikipedia_attention()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":

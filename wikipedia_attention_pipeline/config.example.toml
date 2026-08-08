@@ -1,0 +1,12 @@
+[pipeline]
+articles = ["Artificial_intelligence", "Machine_learning", "Data_engineering", "Large_language_model"]
+history_days = 180
+micro_batch_size = 120
+allowed_lateness_days = 2
+retry_attempts = 2
+
+[forecast]
+holdout_days = 28
+calibration_days = 28
+interval_level = 0.90
+forecast_horizon_days = 14
