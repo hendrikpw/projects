@@ -1,0 +1,13 @@
+[source]
+history_days = 365
+label_maturity_days = 35
+sample_modulus = 1999
+sample_remainder_count = 2
+page_size = 2000
+max_rows = 6000
+
+[model]
+calibration_days = 45
+test_days = 45
+nominal_upper_coverage = 0.90
+random_state = 42
