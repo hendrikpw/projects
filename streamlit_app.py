@@ -15,6 +15,7 @@ from fda_recall_nlp_pipeline.ui import render_dashboard as render_fda_recalls
 from food_label_intelligence.ui import render_dashboard as render_food_labels
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
 from london_bike_rebalancing_intelligence.ui import render_dashboard as render_london_cycles
+from movielens_recommendation_pipeline.ui import render_dashboard as render_movielens_recommendations
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
 from nyc_311_resolution_pipeline.ui import render_dashboard as render_nyc_311_resolution
 from open_source_health_intelligence.ui import render_dashboard as render_open_source_health
@@ -58,8 +59,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–18</div>
-          <h2>Eighteen live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–19</div>
+          <h2>Nineteen live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -247,6 +248,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--recs">
+            <div class="project-index">19 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>MovieLens Recommendation Serving</h3>
+              <p>Contract interactions, hide future preference signals and evaluate personalized retrieval against popularity.</p>
+              <div class="project-meta">
+                <span>GroupLens</span><span>Temporal holdout</span><span>Latent factors</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -282,6 +293,7 @@ with st.sidebar:
             "FDA Recall Triage Pipeline",
             "Wikipedia Attention Forecast Pipeline",
             "NYC 311 Resolution Operations Pipeline",
+            "MovieLens Recommendation Serving Pipeline",
         ],
         label_visibility="collapsed",
     )
@@ -312,6 +324,8 @@ elif page == "Wikipedia Attention Forecast Pipeline":
     render_wikipedia_attention()
 elif page == "NYC 311 Resolution Operations Pipeline":
     render_nyc_311_resolution()
+elif page == "MovieLens Recommendation Serving Pipeline":
+    render_movielens_recommendations()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":

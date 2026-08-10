@@ -1,0 +1,12 @@
+[source]
+url = "https://files.grouplens.org/datasets/movielens/ml-latest-small.zip"
+cache_hours = 24
+timeout_seconds = 30
+retry_attempts = 2
+
+[model]
+positive_rating = 4.0
+minimum_user_ratings = 20
+latent_factors = 48
+evaluation_k = 20
+random_state = 42

@@ -33,6 +33,7 @@ app automatically.
 | [FDA Recall Triage Pipeline](./fda_recall_nlp_pipeline) | Multi-source enforcement pipeline with content hashes, typed contracts, quarantine, evaluated multi-class NLP, drift monitoring and confidence abstention. | Python, Streamlit, openFDA/RES, TF-IDF, scikit-learn, Plotly |
 | [Wikipedia Attention Forecast Pipeline](./wikipedia_attention_pipeline) | Event-time pageview pipeline with micro-batch replay, watermarks, quarantine, rolling-origin forecasting, conformal intervals and anomaly review. | Python, Streamlit, Wikimedia Analytics, gradient boosting, Plotly |
 | [NYC 311 Resolution Operations Pipeline](./nyc_311_resolution_pipeline) | Content-addressed civic-service pipeline with deterministic window sampling, leakage-safe resolution quantiles, calibration, baseline evaluation and drift monitoring. | Python, Streamlit, NYC Open Data, quantile boosting, Plotly |
+| [MovieLens Recommendation Serving Pipeline](./movielens_recommendation_pipeline) | Contracted interaction pipeline with temporal holdout, full-catalog latent-factor evaluation, popularity baseline, novelty reranking and explicit cold start. | Python, Streamlit, GroupLens MovieLens, sparse SVD, Plotly |
 
 ## Repository structure
 
@@ -52,6 +53,7 @@ projects/
 ├── fx_regime_intelligence/
 ├── job-market-analytics-dashboard/
 ├── london_bike_rebalancing_intelligence/
+├── movielens_recommendation_pipeline/
 ├── nyc_collision_intelligence/
 ├── nyc_311_resolution_pipeline/
 ├── open_source_health_intelligence/
