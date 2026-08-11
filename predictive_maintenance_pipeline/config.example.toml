@@ -1,0 +1,8 @@
+[pipeline]
+source_url = "https://archive.ics.uci.edu/static/public/601/ai4i+2020+predictive+maintenance+dataset.zip"
+timeout_seconds = 20
+retries = 3
+
+[decision]
+false_negative_cost = 25
+false_positive_cost = 1

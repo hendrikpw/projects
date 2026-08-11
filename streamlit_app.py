@@ -20,6 +20,7 @@ from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisi
 from nyc_311_resolution_pipeline.ui import render_dashboard as render_nyc_311_resolution
 from open_source_health_intelligence.ui import render_dashboard as render_open_source_health
 from orbital_launch_intelligence.ui import render_dashboard as render_orbital_launches
+from predictive_maintenance_pipeline.ui import render_dashboard as render_predictive_maintenance
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
 from research_evidence_pipeline.ui import render_dashboard as render_research_evidence
@@ -59,8 +60,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–19</div>
-          <h2>Nineteen live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–20</div>
+          <h2>Twenty live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -258,6 +259,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--maintenance">
+            <div class="project-index">20 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Predictive Maintenance Decision</h3>
+              <p>Contract machine cycles, calibrate rare-failure probability and convert intervention costs into an auditable alert policy.</p>
+              <div class="project-meta">
+                <span>UCI AI4I</span><span>Calibration</span><span>Cost-sensitive ML</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -294,6 +305,7 @@ with st.sidebar:
             "Wikipedia Attention Forecast Pipeline",
             "NYC 311 Resolution Operations Pipeline",
             "MovieLens Recommendation Serving Pipeline",
+            "Predictive Maintenance Decision Pipeline",
         ],
         label_visibility="collapsed",
     )
@@ -326,6 +338,8 @@ elif page == "NYC 311 Resolution Operations Pipeline":
     render_nyc_311_resolution()
 elif page == "MovieLens Recommendation Serving Pipeline":
     render_movielens_recommendations()
+elif page == "Predictive Maintenance Decision Pipeline":
+    render_predictive_maintenance()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
