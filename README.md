@@ -35,6 +35,7 @@ app automatically.
 | [NYC 311 Resolution Operations Pipeline](./nyc_311_resolution_pipeline) | Content-addressed civic-service pipeline with deterministic window sampling, leakage-safe resolution quantiles, calibration, baseline evaluation and drift monitoring. | Python, Streamlit, NYC Open Data, quantile boosting, Plotly |
 | [MovieLens Recommendation Serving Pipeline](./movielens_recommendation_pipeline) | Contracted interaction pipeline with temporal holdout, full-catalog latent-factor evaluation, popularity baseline, novelty reranking and explicit cold start. | Python, Streamlit, GroupLens MovieLens, sparse SVD, Plotly |
 | [Predictive Maintenance Decision Pipeline](./predictive_maintenance_pipeline) | Content-addressed machine-cycle pipeline with typed quarantine, target-leakage controls, calibrated rare-failure classification, drift monitoring and cost-sensitive alerting. | Python, Streamlit, UCI AI4I, gradient boosting, isotonic calibration |
+| [NOAA Storm Impact Operations Pipeline](./storm_impact_pipeline) | Revision-aware storm-event pipeline with typed monetary labels, fail-closed quarantine, calibrated hurdle modeling, conditional uncertainty, drift and impact-based review ranking. | Python, Streamlit, NOAA/NCEI, gradient boosting, isotonic calibration |
 
 ## Repository structure
 
@@ -62,6 +63,7 @@ projects/
 ├── predictive_maintenance_pipeline/
 ├── portfolio_pages/
 ├── research_evidence_pipeline/
+├── storm_impact_pipeline/
 ├── wikipedia_attention_pipeline/
 ├── streamlit_app.py
 ├── requirements.txt

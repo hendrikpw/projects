@@ -1,0 +1,9 @@
+[pipeline]
+year = 2025
+directory_url = "https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/"
+max_compressed_bytes = 20000000
+retries = 3
+
+[decision]
+review_capacity_percent = 10
+severe_damage_usd = 50000

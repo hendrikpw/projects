@@ -24,6 +24,7 @@ from predictive_maintenance_pipeline.ui import render_dashboard as render_predic
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
 from research_evidence_pipeline.ui import render_dashboard as render_research_evidence
+from storm_impact_pipeline.ui import render_dashboard as render_storm_impact
 from wikipedia_attention_pipeline.ui import render_dashboard as render_wikipedia_attention
 
 
@@ -60,8 +61,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–20</div>
-          <h2>Twenty live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–21</div>
+          <h2>Twenty-one live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -269,6 +270,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--storm">
+            <div class="project-index">21 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>NOAA Storm Impact Operations</h3>
+              <p>Contract revisioned storm reports, separate damage probability from magnitude and prioritize review by expected impact.</p>
+              <div class="project-meta">
+                <span>NOAA/NCEI</span><span>Hurdle model</span><span>Impact ranking</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -306,6 +317,7 @@ with st.sidebar:
             "NYC 311 Resolution Operations Pipeline",
             "MovieLens Recommendation Serving Pipeline",
             "Predictive Maintenance Decision Pipeline",
+            "NOAA Storm Impact Operations Pipeline",
         ],
         label_visibility="collapsed",
     )
@@ -340,6 +352,8 @@ elif page == "MovieLens Recommendation Serving Pipeline":
     render_movielens_recommendations()
 elif page == "Predictive Maintenance Decision Pipeline":
     render_predictive_maintenance()
+elif page == "NOAA Storm Impact Operations Pipeline":
+    render_storm_impact()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
