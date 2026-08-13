@@ -36,6 +36,7 @@ app automatically.
 | [MovieLens Recommendation Serving Pipeline](./movielens_recommendation_pipeline) | Contracted interaction pipeline with temporal holdout, full-catalog latent-factor evaluation, popularity baseline, novelty reranking and explicit cold start. | Python, Streamlit, GroupLens MovieLens, sparse SVD, Plotly |
 | [Predictive Maintenance Decision Pipeline](./predictive_maintenance_pipeline) | Content-addressed machine-cycle pipeline with typed quarantine, target-leakage controls, calibrated rare-failure classification, drift monitoring and cost-sensitive alerting. | Python, Streamlit, UCI AI4I, gradient boosting, isotonic calibration |
 | [NOAA Storm Impact Operations Pipeline](./storm_impact_pipeline) | Revision-aware storm-event pipeline with typed monetary labels, fail-closed quarantine, calibrated hurdle modeling, conditional uncertainty, drift and impact-based review ranking. | Python, Streamlit, NOAA/NCEI, gradient boosting, isotonic calibration |
+| [Message Trust Gateway](./message_trust_gateway) | Replay-safe and privacy-aware SMS pipeline with duplicate-group isolation, calibrated word/character NLP, abstention, adversarial evaluation and drift monitoring. | Python, Streamlit, UCI SMS Spam, TF-IDF, logistic regression, Platt calibration |
 
 ## Repository structure
 
@@ -55,6 +56,7 @@ projects/
 ├── fx_regime_intelligence/
 ├── job-market-analytics-dashboard/
 ├── london_bike_rebalancing_intelligence/
+├── message_trust_gateway/
 ├── movielens_recommendation_pipeline/
 ├── nyc_collision_intelligence/
 ├── nyc_311_resolution_pipeline/

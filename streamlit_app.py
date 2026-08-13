@@ -15,6 +15,7 @@ from fda_recall_nlp_pipeline.ui import render_dashboard as render_fda_recalls
 from food_label_intelligence.ui import render_dashboard as render_food_labels
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
 from london_bike_rebalancing_intelligence.ui import render_dashboard as render_london_cycles
+from message_trust_gateway.ui import render_dashboard as render_message_trust
 from movielens_recommendation_pipeline.ui import render_dashboard as render_movielens_recommendations
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
 from nyc_311_resolution_pipeline.ui import render_dashboard as render_nyc_311_resolution
@@ -61,8 +62,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–21</div>
-          <h2>Twenty-one live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–22</div>
+          <h2>Twenty-two live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -280,6 +281,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--trust">
+            <div class="project-index">22 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Message Trust Gateway</h3>
+              <p>Suppress replayed deliveries, publish privacy-safe message features and route calibrated uncertainty to human review.</p>
+              <div class="project-meta">
+                <span>UCI SMS Spam</span><span>Micro-batches</span><span>Calibrated NLP</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -318,6 +329,7 @@ with st.sidebar:
             "MovieLens Recommendation Serving Pipeline",
             "Predictive Maintenance Decision Pipeline",
             "NOAA Storm Impact Operations Pipeline",
+            "Message Trust Gateway",
         ],
         label_visibility="collapsed",
     )
@@ -354,6 +366,8 @@ elif page == "Predictive Maintenance Decision Pipeline":
     render_predictive_maintenance()
 elif page == "NOAA Storm Impact Operations Pipeline":
     render_storm_impact()
+elif page == "Message Trust Gateway":
+    render_message_trust()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":

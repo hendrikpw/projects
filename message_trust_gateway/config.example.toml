@@ -1,0 +1,10 @@
+[pipeline]
+source_url = "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip"
+max_archive_bytes = 1000000
+retries = 3
+
+[policy]
+spam_precision_target = 0.95
+ham_precision_target = 0.99
+false_negative_cost = 10
+false_positive_cost = 1
