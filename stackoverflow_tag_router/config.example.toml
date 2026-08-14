@@ -1,0 +1,9 @@
+[source]
+pages = 12
+page_size = 100
+cache_hours = 6
+
+[model]
+top_tags = 12
+random_seed = 42
+recommendations = 3

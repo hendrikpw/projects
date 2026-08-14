@@ -26,6 +26,7 @@ from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
 from research_evidence_pipeline.ui import render_dashboard as render_research_evidence
 from storm_impact_pipeline.ui import render_dashboard as render_storm_impact
+from stackoverflow_tag_router.ui import render_dashboard as render_stackoverflow_tags
 from wikipedia_attention_pipeline.ui import render_dashboard as render_wikipedia_attention
 
 
@@ -62,8 +63,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–22</div>
-          <h2>Twenty-two live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–23</div>
+          <h2>Twenty-three live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -291,6 +292,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--stackoverflow">
+            <div class="project-index">23 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Stack Overflow Tag Routing</h3>
+              <p>Contract question snapshots and evaluate multi-label expert routing on a strictly newer holdout.</p>
+              <div class="project-meta">
+                <span>Stack Exchange API</span><span>Multi-label NLP</span><span>Abstention</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -330,6 +341,7 @@ with st.sidebar:
             "Predictive Maintenance Decision Pipeline",
             "NOAA Storm Impact Operations Pipeline",
             "Message Trust Gateway",
+            "Stack Overflow Tag Routing Pipeline",
         ],
         label_visibility="collapsed",
     )
@@ -368,6 +380,8 @@ elif page == "NOAA Storm Impact Operations Pipeline":
     render_storm_impact()
 elif page == "Message Trust Gateway":
     render_message_trust()
+elif page == "Stack Overflow Tag Routing Pipeline":
+    render_stackoverflow_tags()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
