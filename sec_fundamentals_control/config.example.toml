@@ -1,0 +1,8 @@
+[sec]
+user_agent = "hendrikpw-projects sec-fundamentals-control/1.0 https://github.com/hendrikpw/projects"
+request_timeout_seconds = 35
+max_payload_bytes = 8000000
+
+[model]
+calibration_quantile = 0.95
+review_budget = 0.10

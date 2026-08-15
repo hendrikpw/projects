@@ -25,6 +25,7 @@ from predictive_maintenance_pipeline.ui import render_dashboard as render_predic
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
 from research_evidence_pipeline.ui import render_dashboard as render_research_evidence
+from sec_fundamentals_control.ui import render_dashboard as render_sec_fundamentals
 from storm_impact_pipeline.ui import render_dashboard as render_storm_impact
 from stackoverflow_tag_router.ui import render_dashboard as render_stackoverflow_tags
 from wikipedia_attention_pipeline.ui import render_dashboard as render_wikipedia_attention
@@ -63,8 +64,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–23</div>
-          <h2>Twenty-three live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–24</div>
+          <h2>Twenty-four live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -302,6 +303,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--sec">
+            <div class="project-index">24 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>SEC Fundamentals Control</h3>
+              <p>Resolve revisioned XBRL facts, enforce publication gates and evaluate peer-local financial anomaly review.</p>
+              <div class="project-meta">
+                <span>SEC EDGAR</span><span>XBRL lineage</span><span>Local anomaly detection</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -342,6 +353,7 @@ with st.sidebar:
             "NOAA Storm Impact Operations Pipeline",
             "Message Trust Gateway",
             "Stack Overflow Tag Routing Pipeline",
+            "SEC Fundamentals Control",
         ],
         label_visibility="collapsed",
     )
@@ -382,6 +394,8 @@ elif page == "Message Trust Gateway":
     render_message_trust()
 elif page == "Stack Overflow Tag Routing Pipeline":
     render_stackoverflow_tags()
+elif page == "SEC Fundamentals Control":
+    render_sec_fundamentals()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":

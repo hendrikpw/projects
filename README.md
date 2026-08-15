@@ -38,6 +38,7 @@ app automatically.
 | [NOAA Storm Impact Operations Pipeline](./storm_impact_pipeline) | Revision-aware storm-event pipeline with typed monetary labels, fail-closed quarantine, calibrated hurdle modeling, conditional uncertainty, drift and impact-based review ranking. | Python, Streamlit, NOAA/NCEI, gradient boosting, isotonic calibration |
 | [Message Trust Gateway](./message_trust_gateway) | Replay-safe and privacy-aware SMS pipeline with duplicate-group isolation, calibrated word/character NLP, abstention, adversarial evaluation and drift monitoring. | Python, Streamlit, UCI SMS Spam, TF-IDF, logistic regression, Platt calibration |
 | [Stack Overflow Tag Routing Pipeline](./stackoverflow_tag_router) | Replay-safe relational question pipeline with API backoff, question-tag reconciliation, chronological multi-label NLP evaluation, popularity baseline, abstention and drift monitoring. | Python, Streamlit, Stack Exchange API, TF-IDF, one-vs-rest logistic regression |
+| [SEC Fundamentals Control](./sec_fundamentals_control) | Revision-aware XBRL pipeline with accession lineage, fail-closed quality gates, peer-local anomaly detection, controlled-stress evaluation and drift monitoring. | Python, Streamlit, SEC EDGAR XBRL, Local Outlier Factor, Plotly |
 
 ## Repository structure
 
@@ -66,6 +67,7 @@ projects/
 ├── predictive_maintenance_pipeline/
 ├── portfolio_pages/
 ├── research_evidence_pipeline/
+├── sec_fundamentals_control/
 ├── storm_impact_pipeline/
 ├── stackoverflow_tag_router/
 ├── wikipedia_attention_pipeline/
