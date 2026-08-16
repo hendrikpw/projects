@@ -39,6 +39,7 @@ app automatically.
 | [Message Trust Gateway](./message_trust_gateway) | Replay-safe and privacy-aware SMS pipeline with duplicate-group isolation, calibrated word/character NLP, abstention, adversarial evaluation and drift monitoring. | Python, Streamlit, UCI SMS Spam, TF-IDF, logistic regression, Platt calibration |
 | [Stack Overflow Tag Routing Pipeline](./stackoverflow_tag_router) | Replay-safe relational question pipeline with API backoff, question-tag reconciliation, chronological multi-label NLP evaluation, popularity baseline, abstention and drift monitoring. | Python, Streamlit, Stack Exchange API, TF-IDF, one-vs-rest logistic regression |
 | [SEC Fundamentals Control](./sec_fundamentals_control) | Revision-aware XBRL pipeline with accession lineage, fail-closed quality gates, peer-local anomaly detection, controlled-stress evaluation and drift monitoring. | Python, Streamlit, SEC EDGAR XBRL, Local Outlier Factor, Plotly |
+| [USGS River Flow Early-Warning Pipeline](./river_flow_early_warning) | Replay-safe multi-gauge pipeline with source qualifiers, content-addressed lineage, calibrated three-day high-flow classification, climatology baseline and drift monitoring. | Python, Streamlit, USGS Water Data, gradient boosting, isotonic calibration |
 
 ## Repository structure
 
@@ -67,6 +68,7 @@ projects/
 ├── predictive_maintenance_pipeline/
 ├── portfolio_pages/
 ├── research_evidence_pipeline/
+├── river_flow_early_warning/
 ├── sec_fundamentals_control/
 ├── storm_impact_pipeline/
 ├── stackoverflow_tag_router/

@@ -25,6 +25,7 @@ from predictive_maintenance_pipeline.ui import render_dashboard as render_predic
 from portfolio_pages.design import inject_design_system
 from portfolio_pages.job_market import render_job_market
 from research_evidence_pipeline.ui import render_dashboard as render_research_evidence
+from river_flow_early_warning.ui import render_dashboard as render_river_flow
 from sec_fundamentals_control.ui import render_dashboard as render_sec_fundamentals
 from storm_impact_pipeline.ui import render_dashboard as render_storm_impact
 from stackoverflow_tag_router.ui import render_dashboard as render_stackoverflow_tags
@@ -64,8 +65,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–24</div>
-          <h2>Twenty-four live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–25</div>
+          <h2>Twenty-five live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -313,6 +314,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--river">
+            <div class="project-index">25 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>USGS River Flow Early Warning</h3>
+              <p>Reconcile public gauge observations and evaluate calibrated three-day high-flow review against seasonal climatology.</p>
+              <div class="project-meta">
+                <span>USGS Water Data</span><span>Replay safety</span><span>Calibrated boosting</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -354,6 +365,7 @@ with st.sidebar:
             "Message Trust Gateway",
             "Stack Overflow Tag Routing Pipeline",
             "SEC Fundamentals Control",
+            "USGS River Flow Early Warning",
         ],
         label_visibility="collapsed",
     )
@@ -396,6 +408,8 @@ elif page == "Stack Overflow Tag Routing Pipeline":
     render_stackoverflow_tags()
 elif page == "SEC Fundamentals Control":
     render_sec_fundamentals()
+elif page == "USGS River Flow Early Warning":
+    render_river_flow()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":

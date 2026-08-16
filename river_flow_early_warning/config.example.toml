@@ -1,0 +1,9 @@
+[source]
+start_date = "2018-01-01"
+request_timeout_seconds = 50
+max_response_bytes = 3000000
+
+[model]
+high_flow_training_quantile = 0.90
+alert_probability = 0.65
+review_budget = 0.10
