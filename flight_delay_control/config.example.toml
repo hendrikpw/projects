@@ -1,0 +1,7 @@
+[source]
+month = "2026_6"
+sample_limit = 90000
+max_archive_bytes = 45000000
+[model]
+review_probability = 0.45
+review_budget = 0.10

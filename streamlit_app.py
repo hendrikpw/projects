@@ -13,6 +13,7 @@ from energy_transition_intelligence.ui import render_dashboard as render_energy_
 from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
 from fda_recall_nlp_pipeline.ui import render_dashboard as render_fda_recalls
 from food_label_intelligence.ui import render_dashboard as render_food_labels
+from flight_delay_control.ui import render_dashboard as render_flight_delay
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
 from london_bike_rebalancing_intelligence.ui import render_dashboard as render_london_cycles
 from message_trust_gateway.ui import render_dashboard as render_message_trust
@@ -65,8 +66,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–25</div>
-          <h2>Twenty-five live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–26</div>
+          <h2>Twenty-six live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -324,6 +325,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--flight">
+            <div class="project-index">26 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Flight Delay Operations Control</h3>
+              <p>Govern monthly flight records and evaluate calibrated pre-departure delay-risk review on a strictly later holdout.</p>
+              <div class="project-meta">
+                <span>BTS</span><span>Replay safety</span><span>Calibrated boosting</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -366,6 +377,7 @@ with st.sidebar:
             "Stack Overflow Tag Routing Pipeline",
             "SEC Fundamentals Control",
             "USGS River Flow Early Warning",
+            "Flight Delay Operations Control",
         ],
         label_visibility="collapsed",
     )
@@ -410,6 +422,8 @@ elif page == "SEC Fundamentals Control":
     render_sec_fundamentals()
 elif page == "USGS River Flow Early Warning":
     render_river_flow()
+elif page == "Flight Delay Operations Control":
+    render_flight_delay()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":

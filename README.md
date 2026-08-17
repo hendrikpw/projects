@@ -40,6 +40,7 @@ app automatically.
 | [Stack Overflow Tag Routing Pipeline](./stackoverflow_tag_router) | Replay-safe relational question pipeline with API backoff, question-tag reconciliation, chronological multi-label NLP evaluation, popularity baseline, abstention and drift monitoring. | Python, Streamlit, Stack Exchange API, TF-IDF, one-vs-rest logistic regression |
 | [SEC Fundamentals Control](./sec_fundamentals_control) | Revision-aware XBRL pipeline with accession lineage, fail-closed quality gates, peer-local anomaly detection, controlled-stress evaluation and drift monitoring. | Python, Streamlit, SEC EDGAR XBRL, Local Outlier Factor, Plotly |
 | [USGS River Flow Early-Warning Pipeline](./river_flow_early_warning) | Replay-safe multi-gauge pipeline with source qualifiers, content-addressed lineage, calibrated three-day high-flow classification, climatology baseline and drift monitoring. | Python, Streamlit, USGS Water Data, gradient boosting, isotonic calibration |
+| [Flight Delay Operations Control](./flight_delay_control) | Bounded monthly aviation pipeline with safe ZIP ingestion, replay-proof contracts, calibrated pre-departure delay ranking, temporal evaluation and drift monitoring. | Python, Streamlit, BTS, histogram gradient boosting, isotonic calibration |
 
 ## Repository structure
 
@@ -56,6 +57,7 @@ projects/
 ├── eu_inflation_intelligence/
 ├── fda_recall_nlp_pipeline/
 ├── food_label_intelligence/
+├── flight_delay_control/
 ├── fx_regime_intelligence/
 ├── job-market-analytics-dashboard/
 ├── london_bike_rebalancing_intelligence/
