@@ -41,6 +41,7 @@ app automatically.
 | [SEC Fundamentals Control](./sec_fundamentals_control) | Revision-aware XBRL pipeline with accession lineage, fail-closed quality gates, peer-local anomaly detection, controlled-stress evaluation and drift monitoring. | Python, Streamlit, SEC EDGAR XBRL, Local Outlier Factor, Plotly |
 | [USGS River Flow Early-Warning Pipeline](./river_flow_early_warning) | Replay-safe multi-gauge pipeline with source qualifiers, content-addressed lineage, calibrated three-day high-flow classification, climatology baseline and drift monitoring. | Python, Streamlit, USGS Water Data, gradient boosting, isotonic calibration |
 | [Flight Delay Operations Control](./flight_delay_control) | Bounded monthly aviation pipeline with safe ZIP ingestion, replay-proof contracts, calibrated pre-departure delay ranking, temporal evaluation and drift monitoring. | Python, Streamlit, BTS, histogram gradient boosting, isotonic calibration |
+| [Kepler Candidate Reliability Control](./kepler_candidate_control) | Content-addressed NASA KOI pipeline with typed quarantine, star-group isolation, calibrated disposition modeling, permutation importance, drift and OOD withholding. | Python, Streamlit, NASA Exoplanet Archive TAP, gradient boosting, isotonic calibration |
 
 ## Repository structure
 
@@ -60,6 +61,7 @@ projects/
 ├── flight_delay_control/
 ├── fx_regime_intelligence/
 ├── job-market-analytics-dashboard/
+├── kepler_candidate_control/
 ├── london_bike_rebalancing_intelligence/
 ├── message_trust_gateway/
 ├── movielens_recommendation_pipeline/

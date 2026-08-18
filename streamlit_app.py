@@ -16,6 +16,7 @@ from food_label_intelligence.ui import render_dashboard as render_food_labels
 from flight_delay_control.ui import render_dashboard as render_flight_delay
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
 from london_bike_rebalancing_intelligence.ui import render_dashboard as render_london_cycles
+from kepler_candidate_control.ui import render_dashboard as render_kepler_candidates
 from message_trust_gateway.ui import render_dashboard as render_message_trust
 from movielens_recommendation_pipeline.ui import render_dashboard as render_movielens_recommendations
 from nyc_collision_intelligence.ui import render_dashboard as render_nyc_collisions
@@ -66,8 +67,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–26</div>
-          <h2>Twenty-six live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–27</div>
+          <h2>Twenty-seven live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -335,6 +336,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--kepler">
+            <div class="project-index">27 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Kepler Candidate Reliability Control</h3>
+              <p>Govern NASA KOIs, isolate sibling signals by star and calibrate planet-like vetting with uncertainty and OOD review.</p>
+              <div class="project-meta">
+                <span>NASA TAP</span><span>Group isolation</span><span>OOD guardrails</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -378,6 +389,7 @@ with st.sidebar:
             "SEC Fundamentals Control",
             "USGS River Flow Early Warning",
             "Flight Delay Operations Control",
+            "Kepler Candidate Reliability Control",
         ],
         label_visibility="collapsed",
     )
@@ -424,6 +436,8 @@ elif page == "USGS River Flow Early Warning":
     render_river_flow()
 elif page == "Flight Delay Operations Control":
     render_flight_delay()
+elif page == "Kepler Candidate Reliability Control":
+    render_kepler_candidates()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
