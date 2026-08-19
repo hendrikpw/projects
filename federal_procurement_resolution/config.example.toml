@@ -1,0 +1,10 @@
+[pipeline]
+page_limit = 6
+page_size = 100
+timeout_seconds = 25
+cache_hours = 6
+
+[matching]
+top_k = 5
+minimum_selective_accuracy = 0.95
+random_seed = 42

@@ -12,6 +12,7 @@ from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
 from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
 from fda_recall_nlp_pipeline.ui import render_dashboard as render_fda_recalls
+from federal_procurement_resolution.ui import render_dashboard as render_procurement_resolution
 from food_label_intelligence.ui import render_dashboard as render_food_labels
 from flight_delay_control.ui import render_dashboard as render_flight_delay
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
@@ -67,8 +68,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–27</div>
-          <h2>Twenty-seven live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–28</div>
+          <h2>Twenty-eight live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -346,6 +347,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--procurement">
+            <div class="project-index">28 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Federal Procurement Entity Resolution</h3>
+              <p>Govern federal contract deliveries and evaluate confidence-aware supplier matching against authoritative UEIs.</p>
+              <div class="project-meta">
+                <span>USAspending</span><span>Entity resolution</span><span>Abstention</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -390,6 +401,7 @@ with st.sidebar:
             "USGS River Flow Early Warning",
             "Flight Delay Operations Control",
             "Kepler Candidate Reliability Control",
+            "Federal Procurement Entity Resolution Control",
         ],
         label_visibility="collapsed",
     )
@@ -438,6 +450,8 @@ elif page == "Flight Delay Operations Control":
     render_flight_delay()
 elif page == "Kepler Candidate Reliability Control":
     render_kepler_candidates()
+elif page == "Federal Procurement Entity Resolution Control":
+    render_procurement_resolution()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
