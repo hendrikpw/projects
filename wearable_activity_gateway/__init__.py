@@ -1,0 +1,1 @@
+"""Wearable activity inference gateway."""

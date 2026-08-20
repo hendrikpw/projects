@@ -1,0 +1,10 @@
+[ingestion]
+timeout_seconds = 45
+maximum_archive_mb = 80
+replay_windows = 20
+micro_batch_size = 256
+
+[model]
+trees = 220
+target_selective_accuracy = 0.95
+random_seed = 42

@@ -43,6 +43,7 @@ app automatically.
 | [Flight Delay Operations Control](./flight_delay_control) | Bounded monthly aviation pipeline with safe ZIP ingestion, replay-proof contracts, calibrated pre-departure delay ranking, temporal evaluation and drift monitoring. | Python, Streamlit, BTS, histogram gradient boosting, isotonic calibration |
 | [Kepler Candidate Reliability Control](./kepler_candidate_control) | Content-addressed NASA KOI pipeline with typed quarantine, star-group isolation, calibrated disposition modeling, permutation importance, drift and OOD withholding. | Python, Streamlit, NASA Exoplanet Archive TAP, gradient boosting, isotonic calibration |
 | [Federal Procurement Entity Resolution Control](./federal_procurement_resolution) | Replay-safe USAspending contract pipeline with typed quarantine, UEI-keyed Gold products, evaluated character-level supplier matching, calibrated abstention and false-merge monitoring. | Python, Streamlit, USAspending, TF-IDF entity resolution, scikit-learn |
+| [Wearable Activity Inference Gateway](./wearable_activity_gateway) | Safe nested-ZIP sensor pipeline with micro-batch replay, typed window contracts, subject-isolated multiclass inference, temperature scaling, drift and sensor/OOD withholding. | Python, Streamlit, UCI HAR, Extra Trees, calibrated selective inference |
 
 ## Repository structure
 
@@ -79,6 +80,7 @@ projects/
 ├── storm_impact_pipeline/
 ├── stackoverflow_tag_router/
 ├── wikipedia_attention_pipeline/
+├── wearable_activity_gateway/
 ├── streamlit_app.py
 ├── requirements.txt
 └── README.md

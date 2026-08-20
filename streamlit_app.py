@@ -33,6 +33,7 @@ from sec_fundamentals_control.ui import render_dashboard as render_sec_fundament
 from storm_impact_pipeline.ui import render_dashboard as render_storm_impact
 from stackoverflow_tag_router.ui import render_dashboard as render_stackoverflow_tags
 from wikipedia_attention_pipeline.ui import render_dashboard as render_wikipedia_attention
+from wearable_activity_gateway.ui import render_dashboard as render_wearable_activity
 
 
 st.set_page_config(
@@ -68,8 +69,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–28</div>
-          <h2>Twenty-eight live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–29</div>
+          <h2>Twenty-nine live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -357,6 +358,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--wearable">
+            <div class="project-index">29 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Wearable Activity Inference Gateway</h3>
+              <p>Contract replayed sensor windows, isolate people across model stages and withhold uncertain or out-of-domain activity inference.</p>
+              <div class="project-meta">
+                <span>UCI HAR</span><span>Subject isolation</span><span>OOD guardrails</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -402,6 +413,7 @@ with st.sidebar:
             "Flight Delay Operations Control",
             "Kepler Candidate Reliability Control",
             "Federal Procurement Entity Resolution Control",
+            "Wearable Activity Inference Gateway",
         ],
         label_visibility="collapsed",
     )
@@ -452,6 +464,8 @@ elif page == "Kepler Candidate Reliability Control":
     render_kepler_candidates()
 elif page == "Federal Procurement Entity Resolution Control":
     render_procurement_resolution()
+elif page == "Wearable Activity Inference Gateway":
+    render_wearable_activity()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
