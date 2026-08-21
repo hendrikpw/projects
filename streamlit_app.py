@@ -16,6 +16,7 @@ from federal_procurement_resolution.ui import render_dashboard as render_procure
 from food_label_intelligence.ui import render_dashboard as render_food_labels
 from flight_delay_control.ui import render_dashboard as render_flight_delay
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
+from household_load_forecast.ui import render_dashboard as render_household_load
 from london_bike_rebalancing_intelligence.ui import render_dashboard as render_london_cycles
 from kepler_candidate_control.ui import render_dashboard as render_kepler_candidates
 from message_trust_gateway.ui import render_dashboard as render_message_trust
@@ -69,8 +70,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–29</div>
-          <h2>Twenty-nine live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–30</div>
+          <h2>Thirty live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -368,6 +369,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--load">
+            <div class="project-index">30 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Household Load Forecast Control</h3>
+              <p>Reconcile minute power events, govern hourly history and backtest calibrated day-ahead load forecasts against persistence.</p>
+              <div class="project-meta">
+                <span>UCI Power</span><span>Event time</span><span>Conformal forecast</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -414,6 +425,7 @@ with st.sidebar:
             "Kepler Candidate Reliability Control",
             "Federal Procurement Entity Resolution Control",
             "Wearable Activity Inference Gateway",
+            "Household Load Forecast Control",
         ],
         label_visibility="collapsed",
     )
@@ -466,6 +478,8 @@ elif page == "Federal Procurement Entity Resolution Control":
     render_procurement_resolution()
 elif page == "Wearable Activity Inference Gateway":
     render_wearable_activity()
+elif page == "Household Load Forecast Control":
+    render_household_load()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":

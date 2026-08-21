@@ -44,6 +44,7 @@ app automatically.
 | [Kepler Candidate Reliability Control](./kepler_candidate_control) | Content-addressed NASA KOI pipeline with typed quarantine, star-group isolation, calibrated disposition modeling, permutation importance, drift and OOD withholding. | Python, Streamlit, NASA Exoplanet Archive TAP, gradient boosting, isotonic calibration |
 | [Federal Procurement Entity Resolution Control](./federal_procurement_resolution) | Replay-safe USAspending contract pipeline with typed quarantine, UEI-keyed Gold products, evaluated character-level supplier matching, calibrated abstention and false-merge monitoring. | Python, Streamlit, USAspending, TF-IDF entity resolution, scikit-learn |
 | [Wearable Activity Inference Gateway](./wearable_activity_gateway) | Safe nested-ZIP sensor pipeline with micro-batch replay, typed window contracts, subject-isolated multiclass inference, temperature scaling, drift and sensor/OOD withholding. | Python, Streamlit, UCI HAR, Extra Trees, calibrated selective inference |
+| [Household Load Forecast Control](./household_load_forecast) | Chunked minute-power pipeline with event-time watermarks, replay-safe hourly contracts, leakage-safe day-ahead residual forecasting, calibrated intervals, drift and serving guardrails. | Python, Streamlit, UCI Power, gradient boosting, conformal forecasting |
 
 ## Repository structure
 
@@ -63,6 +64,7 @@ projects/
 ├── food_label_intelligence/
 ├── flight_delay_control/
 ├── fx_regime_intelligence/
+├── household_load_forecast/
 ├── job-market-analytics-dashboard/
 ├── kepler_candidate_control/
 ├── london_bike_rebalancing_intelligence/

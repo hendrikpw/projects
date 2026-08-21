@@ -1,0 +1,14 @@
+[ingestion]
+timeout_seconds = 45
+attempts = 3
+chunk_rows = 250000
+
+[pipeline]
+batch_hours = 168
+watermark_hours = 48
+replay_rows = 24
+
+[model]
+horizon_hours = 24
+interval_coverage = 0.80
+random_state = 42
