@@ -45,6 +45,7 @@ app automatically.
 | [Federal Procurement Entity Resolution Control](./federal_procurement_resolution) | Replay-safe USAspending contract pipeline with typed quarantine, UEI-keyed Gold products, evaluated character-level supplier matching, calibrated abstention and false-merge monitoring. | Python, Streamlit, USAspending, TF-IDF entity resolution, scikit-learn |
 | [Wearable Activity Inference Gateway](./wearable_activity_gateway) | Safe nested-ZIP sensor pipeline with micro-batch replay, typed window contracts, subject-isolated multiclass inference, temperature scaling, drift and sensor/OOD withholding. | Python, Streamlit, UCI HAR, Extra Trees, calibrated selective inference |
 | [Household Load Forecast Control](./household_load_forecast) | Chunked minute-power pipeline with event-time watermarks, replay-safe hourly contracts, leakage-safe day-ahead residual forecasting, calibrated intervals, drift and serving guardrails. | Python, Streamlit, UCI Power, gradient boosting, conformal forecasting |
+| [Handwritten Digit Recognition Gateway](./digit_recognition_gateway) | Content-addressed image pipeline with replay suppression, typed pixel contracts, unseen-writer evaluation, temperature-scaled recognition, corruption testing and OOD withholding. | Python, Streamlit, UCI Optdigits, RBF SVM, calibrated selective inference |
 
 ## Repository structure
 
@@ -55,6 +56,7 @@ projects/
 ├── air_quality_intelligence/
 ├── biodiversity_observation_intelligence/
 ├── cyber_vulnerability_intelligence/
+├── digit_recognition_gateway/
 ├── clinical_trial_ops_pipeline/
 ├── energy_transition_intelligence/
 ├── earthquake_intelligence/

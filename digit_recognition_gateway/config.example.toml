@@ -1,0 +1,12 @@
+[ingestion]
+timeout_seconds = 30
+attempts = 3
+max_archive_bytes = 2000000
+
+[pipeline]
+batch_size = 128
+replay_rows = 20
+
+[model]
+target_selective_accuracy = 0.985
+random_state = 42

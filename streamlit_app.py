@@ -8,6 +8,7 @@ from air_quality_intelligence.ui import render_dashboard as render_air_quality
 from biodiversity_observation_intelligence.ui import render_dashboard as render_biodiversity
 from clinical_trial_ops_pipeline.ui import render_dashboard as render_clinical_trials
 from cyber_vulnerability_intelligence.ui import render_dashboard as render_cyber_vulnerabilities
+from digit_recognition_gateway.ui import render_dashboard as render_digit_gateway
 from earthquake_intelligence.ui import render_dashboard as render_earthquakes
 from energy_transition_intelligence.ui import render_dashboard as render_energy_transition
 from eu_inflation_intelligence.ui import render_dashboard as render_eu_inflation
@@ -70,8 +71,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–30</div>
-          <h2>Thirty live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–31</div>
+          <h2>Thirty-one live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -379,6 +380,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--digit">
+            <div class="project-index">31 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>Handwritten Digit Recognition Gateway</h3>
+              <p>Contract replayed image deliveries, preserve unseen writers and route calibrated digit reads through corruption and OOD guardrails.</p>
+              <div class="project-meta">
+                <span>UCI Optdigits</span><span>Computer vision</span><span>Selective inference</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -426,6 +437,7 @@ with st.sidebar:
             "Federal Procurement Entity Resolution Control",
             "Wearable Activity Inference Gateway",
             "Household Load Forecast Control",
+            "Handwritten Digit Recognition Gateway",
         ],
         label_visibility="collapsed",
     )
@@ -480,6 +492,8 @@ elif page == "Wearable Activity Inference Gateway":
     render_wearable_activity()
 elif page == "Household Load Forecast Control":
     render_household_load()
+elif page == "Handwritten Digit Recognition Gateway":
+    render_digit_gateway()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
