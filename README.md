@@ -46,6 +46,7 @@ app automatically.
 | [Wearable Activity Inference Gateway](./wearable_activity_gateway) | Safe nested-ZIP sensor pipeline with micro-batch replay, typed window contracts, subject-isolated multiclass inference, temperature scaling, drift and sensor/OOD withholding. | Python, Streamlit, UCI HAR, Extra Trees, calibrated selective inference |
 | [Household Load Forecast Control](./household_load_forecast) | Chunked minute-power pipeline with event-time watermarks, replay-safe hourly contracts, leakage-safe day-ahead residual forecasting, calibrated intervals, drift and serving guardrails. | Python, Streamlit, UCI Power, gradient boosting, conformal forecasting |
 | [Handwritten Digit Recognition Gateway](./digit_recognition_gateway) | Content-addressed image pipeline with replay suppression, typed pixel contracts, unseen-writer evaluation, temperature-scaled recognition, corruption testing and OOD withholding. | Python, Streamlit, UCI Optdigits, RBF SVM, calibrated selective inference |
+| [MBTA Transit Graph Control](./mbta_transit_graph_control) | Bounded live-GTFS pipeline with relational contracts, parent-station graph normalization, replay suppression, masked-link recovery, ranking evaluation and confidence-based human review. | Python, Streamlit, MBTA GTFS, sparse graph embeddings, link prediction |
 
 ## Repository structure
 
@@ -70,6 +71,7 @@ projects/
 ├── job-market-analytics-dashboard/
 ├── kepler_candidate_control/
 ├── london_bike_rebalancing_intelligence/
+├── mbta_transit_graph_control/
 ├── message_trust_gateway/
 ├── movielens_recommendation_pipeline/
 ├── nyc_collision_intelligence/

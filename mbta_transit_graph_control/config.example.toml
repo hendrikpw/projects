@@ -1,0 +1,12 @@
+[ingestion]
+timeout_seconds = 45
+attempts = 3
+max_archive_bytes = 30000000
+stop_times_chunk_rows = 300000
+
+[pipeline]
+replay_edges = 20
+
+[model]
+candidate_routes = 5
+random_state = 42

@@ -19,6 +19,7 @@ from flight_delay_control.ui import render_dashboard as render_flight_delay
 from fx_regime_intelligence.ui import render_dashboard as render_fx_regimes
 from household_load_forecast.ui import render_dashboard as render_household_load
 from london_bike_rebalancing_intelligence.ui import render_dashboard as render_london_cycles
+from mbta_transit_graph_control.ui import render_dashboard as render_mbta_graph
 from kepler_candidate_control.ui import render_dashboard as render_kepler_candidates
 from message_trust_gateway.ui import render_dashboard as render_message_trust
 from movielens_recommendation_pipeline.ui import render_dashboard as render_movielens_recommendations
@@ -71,8 +72,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–31</div>
-          <h2>Thirty-one live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected work / 01–32</div>
+          <h2>Thirty-two live products.<br>One growing system.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -390,6 +391,16 @@ def render_home() -> None:
               </div>
             </div>
           </article>
+          <article class="project-card project-card--transit">
+            <div class="project-index">32 / DATA + AI ENGINEERING</div>
+            <div>
+              <h3>MBTA Transit Graph Control</h3>
+              <p>Contract a live GTFS network, reconcile its relational graph and recover masked stop–route links with calibrated review routing.</p>
+              <div class="project-meta">
+                <span>MBTA GTFS</span><span>Graph embeddings</span><span>Link prediction</span>
+              </div>
+            </div>
+          </article>
         </div>
         <section class="statement-panel">
           <div class="section-kicker">Design principle</div>
@@ -438,6 +449,7 @@ with st.sidebar:
             "Wearable Activity Inference Gateway",
             "Household Load Forecast Control",
             "Handwritten Digit Recognition Gateway",
+            "MBTA Transit Graph Control",
         ],
         label_visibility="collapsed",
     )
@@ -494,6 +506,8 @@ elif page == "Household Load Forecast Control":
     render_household_load()
 elif page == "Handwritten Digit Recognition Gateway":
     render_digit_gateway()
+elif page == "MBTA Transit Graph Control":
+    render_mbta_graph()
 elif page == "Job Market Analytics":
     render_job_market()
 elif page == "Energy Transition Intelligence":
