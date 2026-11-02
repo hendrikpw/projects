@@ -1,8 +1,6 @@
-# FX Market Regime Intelligence
+# Euro exchange rates
 
-A deployment-ready Streamlit product for exploring euro reference exchange rates,
-market regimes, unusual multi-currency sessions, correlation structure and simple
-exposure scenarios.
+Explore how selected currencies have moved against the euro. The page flags unusual patterns in the historical data, but does not predict future exchange rates.
 
 ## Problem
 

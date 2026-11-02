@@ -1,10 +1,6 @@
-# Open Source Repository Health Intelligence
+# Repository activity
 
-A deployment-ready Streamlit mini-product for exploring public GitHub repository
-delivery flow, backlog aging, contributor concentration and release rhythm. The
-application is integrated into the repository's central `streamlit_app.py` and
-therefore becomes available automatically in the same hosted portfolio after a
-commit to `main`.
+A snapshot of public GitHub activity: delivery timing, open work, contributors and releases. It is not an official GitHub score and should not be used as a measure of code quality or maintainer wellbeing.
 
 ## Problem
 

@@ -24,7 +24,7 @@ from eu_inflation_intelligence.src.data import (
 )
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#a7abb2", "#747982", "#4a4f57", "#292d33"]
+PALETTE = ["#d77a61", "#6c9eab", "#e3b45f", "#8796c8", "#a78b7d", "#78a68f"]
 BASKET_DEFAULTS = {
     "CP01": 20,
     "CP03": 8,
@@ -91,14 +91,14 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="page-hero inflation-hero">
-          <div class="eyebrow">06 / European price intelligence</div>
-          <h1>EU Inflation &<br>Household Basket.</h1>
+          <div class="eyebrow">Prices · Europe</div>
+          <h1>How prices are changing<br>across Europe</h1>
           <p>
-            Compare official harmonised inflation across Europe, reveal category
-            pressure and translate the latest rates into a transparent personal
-            spending-basket estimate.
+            Compare official inflation rates by country and category. You can also
+            adjust the spending mix to see how those rates would affect a
+            household basket like yours.
           </p>
-          <div class="source-line">Eurostat · HICP · ECOICOP version 2</div>
+          <div class="source-line">Eurostat · Harmonised Index of Consumer Prices</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -223,7 +223,7 @@ def render_dashboard() -> None:
         y="rate",
         color="country",
         markers=True,
-        title="All-items HICP · annual rate of change",
+        title="Annual inflation by country",
         labels={"date": "", "rate": "Annual change · %", "country": ""},
         color_discrete_sequence=PALETTE,
     )
@@ -256,7 +256,7 @@ def render_dashboard() -> None:
             color_continuous_midpoint=2,
             text_auto=".1f",
             aspect="auto",
-            title="Latest category pressure · annual %",
+            title="Inflation by spending category",
             labels={"color": "Annual %"},
         )
         st.plotly_chart(_style_figure(heatmap, 610), width="stretch")
@@ -397,7 +397,7 @@ def render_dashboard() -> None:
             width="stretch",
         )
 
-    with st.expander("Method, assumptions and limitations"):
+    with st.expander("Sources and how to read this"):
         st.markdown(
             """
             - **Official metric:** `RCH_A` is the percentage change from a month

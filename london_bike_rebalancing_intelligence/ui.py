@@ -31,7 +31,7 @@ STATUS_COLORS = {
     "Balanced": "#737982",
     "Unavailable": "#292d33",
 }
-PALETTE = ["#e5484d", "#fcfcfd", "#9ba0a8", "#656a73", "#3c4149", "#24282e"]
+PALETTE = ["#4c9a83", "#e5ab52", "#729bb0", "#d97e67", "#9b8ac4", "#bbc2c9"]
 
 
 def _style_figure(figure: go.Figure, height: int = 470) -> go.Figure:
@@ -69,13 +69,14 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">13 / Urban mobility operations</div>
-          <h1>London Cycle<br>Rebalancing Intelligence.</h1>
+          <div class="eyebrow">Bike hire · London</div>
+          <h1>Which cycle stations<br>need bikes?</h1>
           <p>
-            Turn the live Santander Cycles station network into service-level
-            signals, spatial pressure clusters and an actionable bike-move plan.
+            Check the latest Santander Cycles station availability and see where
+            stations are nearly empty or full. The transfer planner is a simple
+            scenario, not a live instruction to move bikes.
           </p>
-          <div class="source-line">Transport for London · Live BikePoint API · Haversine DBSCAN</div>
+          <div class="source-line">Transport for London · Santander Cycles</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -156,7 +157,7 @@ def render_dashboard() -> None:
             center={"lat": 51.5074, "lon": -0.1278},
             zoom=10.25,
             opacity=0.82,
-            title="Current station availability and pressure state",
+            title="Bikes available at each station",
             labels={"service_status": "Service state"},
         )
         network_map.update_layout(mapbox_style="carto-darkmatter")
@@ -323,7 +324,7 @@ def render_dashboard() -> None:
             y="check",
             orientation="h",
             text=quality.sort_values("share")["share"].map(lambda value: f"{value:.1f}%"),
-            title="Feed and station-state checks",
+            title="Feed and station checks",
             labels={"share": "Affected stations · %", "check": ""},
             color="share",
             color_continuous_scale=["#30343b", "#e5484d"],

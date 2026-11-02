@@ -1,12 +1,6 @@
-# Global Seismic Activity Intelligence
+# Recent earthquakes
 
-A responsive, browser-based data science product for exploring the recent
-global earthquake catalog. It combines near-real-time USGS data with physical
-feature engineering, robust temporal diagnostics, magnitude-frequency analysis
-and density-based spatial clustering.
-
-The project is integrated into the repository's central Streamlit application,
-so it can be used online without downloading the repository.
+An interactive view of recent events in the USGS catalog. Use the filters to narrow the map and compare magnitude, depth and timing.
 
 ## Problem
 

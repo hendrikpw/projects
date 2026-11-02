@@ -20,7 +20,7 @@ from orbital_launch_intelligence.src.analytics import (
 from orbital_launch_intelligence.src.data import DOCS_URL, load_data
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#a7abb2", "#747982", "#4a4f57", "#292d33"]
+PALETTE = ["#79a8d8", "#f1b45b", "#9b8ac4", "#59a99b", "#dd7f77", "#b5bdc7"]
 
 
 def _style_figure(figure: go.Figure, height: int = 470) -> go.Figure:
@@ -50,13 +50,14 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">07 / Spaceflight operations analytics</div>
-          <h1>Orbital Launch<br>Reliability Intelligence.</h1>
+          <div class="eyebrow">Spaceflight · Launch activity</div>
+          <h1>Space launches,<br>past and upcoming</h1>
           <p>
-            Explore global launch cadence, compare providers with uncertainty-aware
-            reliability estimates and inspect where and what the world launches next.
+            See how launch activity changes over time, compare providers with
+            enough launches to make a fairer comparison, and browse the next
+            missions on the schedule.
           </p>
-          <div class="source-line">The Space Devs · Launch Library 2</div>
+          <div class="source-line">Launch Library 2 · The Space Devs</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -187,7 +188,7 @@ def render_dashboard() -> None:
                 ),
             )
         )
-        figure.update_layout(title="Provider success rates · 95% Wilson intervals")
+        figure.update_layout(title="Launch outcomes by provider")
         figure.update_xaxes(range=[max(0, reliability["wilson_low"].min() - 5), 101], title="Decided launch success · %")
         st.plotly_chart(_style_figure(figure, max(460, len(reliability) * 40 + 140)), width="stretch")
         st.caption(
@@ -295,7 +296,7 @@ def render_dashboard() -> None:
     with right:
         st.link_button("Open Launch Library 2 documentation", DOCS_URL, width="stretch")
 
-    with st.expander("Method, assumptions and limitations"):
+    with st.expander("Sources and how to read this"):
         st.markdown(
             """
             - Only outcomes labelled successful or failed are used for reliability.

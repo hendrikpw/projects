@@ -19,7 +19,7 @@ from earthquake_intelligence.src.analytics import (
 from earthquake_intelligence.src.data import CATALOG_URL, load_data
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#a7abb2", "#747982", "#4a4f57", "#292d33"]
+PALETTE = ["#f4a261", "#57a0d3", "#e76f51", "#9b8ac4", "#58a99c", "#d5b26e"]
 
 
 def _style_figure(figure: go.Figure, height: int = 470) -> go.Figure:
@@ -64,12 +64,12 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">05 / Real-time geospatial science</div>
-          <h1>Global Seismic<br>Activity Intelligence.</h1>
+          <div class="eyebrow">Earthquakes · Worldwide</div>
+          <h1>A closer look at<br>recent earthquakes</h1>
           <p>
-            Explore recent earthquakes through spatial sequences, focal depth,
-            physical energy and magnitude-frequency behavior—without turning
-            descriptive catalog data into a prediction claim.
+            Browse recent USGS events by magnitude, depth and location. The charts
+            describe what has been recorded so far; they cannot tell us where an
+            earthquake will happen next.
           </p>
           <div class="source-line">USGS · ANSS Comprehensive Earthquake Catalog</div>
         </section>
@@ -91,7 +91,7 @@ def render_dashboard() -> None:
     if metadata.get("row_limit_reached"):
         st.warning("The 20,000-event safety limit was reached; the source window may be truncated.")
 
-    with st.expander("Analysis controls", expanded=True):
+    with st.expander("Choose what to compare", expanded=True):
         control_a, control_b, control_c, control_d = st.columns([0.9, 1.2, 1, 1])
         with control_a:
             days = st.select_slider("Latest window", [1, 3, 7, 14, 30], value=14)
@@ -184,7 +184,7 @@ def render_dashboard() -> None:
             "longitude": False,
         },
         color_discrete_sequence=PALETTE,
-        title="Recent epicenters · haversine DBSCAN sequences",
+        title="Recent earthquakes and nearby clusters",
     )
     map_figure.update_layout(mapbox_style="carto-darkmatter")
     st.plotly_chart(_style_figure(map_figure, height=650), width="stretch")

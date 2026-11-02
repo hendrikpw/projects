@@ -25,7 +25,7 @@ from biodiversity_observation_intelligence.src.data import (
 )
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#a7abb2", "#747982", "#4a4f57", "#292d33"]
+PALETTE = ["#4f8f70", "#91b76a", "#d1a85b", "#7197a7", "#ac8291", "#b5bdc7"]
 MONTHS = {1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "Jun", 7: "Jul", 8: "Aug", 9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec"}
 
 
@@ -56,13 +56,14 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">11 / Biodiversity data intelligence</div>
-          <h1>Biodiversity<br>Observation Intelligence.</h1>
+          <div class="eyebrow">Nature records · Europe</div>
+          <h1>Where have species<br>been recorded?</h1>
           <p>
-            Explore when and where European species are recorded, identify dense
-            observation zones and audit the quality behind every visible pattern.
+            Explore GBIF observations by species, season and place. A busy map
+            can mean more people are recording sightings there, so observation
+            counts should not be read as population sizes.
           </p>
-          <div class="source-line">GBIF · Taxonomy · Darwin Core occurrences</div>
+          <div class="source-line">GBIF · Species occurrence records</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -156,7 +157,7 @@ def render_dashboard() -> None:
         zoom=2.35,
         center={"lat": 51, "lon": 11},
         opacity=0.68,
-        title="Bounded georeferenced occurrence sample",
+        title="Where observations were recorded",
         labels={"query_name": "Species"},
         color_discrete_sequence=PALETTE,
     )

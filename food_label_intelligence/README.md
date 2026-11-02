@@ -1,12 +1,6 @@
-# Food Label & Product Choice Intelligence
+# Compare food labels
 
-A polished Streamlit mini-product for comparing packaged food labels, auditing
-data quality and finding nutritionally similar products through an explainable
-preference model.
-
-The project is integrated into the repository's central `streamlit_app.py`.
-Once that app is deployed on Streamlit Community Cloud, commits to `main`
-appear at the same URL.
+Browse packaged foods and compare the nutrients recorded on their labels. The preference score is only a within-sample comparison; missing values are left out rather than treated as zero.
 
 ## Problem
 

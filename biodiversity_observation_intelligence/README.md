@@ -1,8 +1,6 @@
-# Biodiversity Observation Intelligence
+# Species observations
 
-A deployment-ready Streamlit mini-product that compares European species
-occurrence records while keeping taxonomy, sampling bias, quality, publisher and
-licence provenance visible.
+Explore where and when selected species have been recorded in GBIF. The maps show submitted observations, not a complete census or an estimate of how many animals or plants live in each place.
 
 ## Problem
 

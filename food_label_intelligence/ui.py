@@ -19,7 +19,7 @@ from food_label_intelligence.src.analytics import (
 from food_label_intelligence.src.data import CATEGORIES, COUNTRIES, DOCS_URL, load_data
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#a7abb2", "#747982", "#4a4f57", "#292d33"]
+PALETTE = ["#6f9e78", "#d49a52", "#7d9cb5", "#bb7e72", "#9c8bb3", "#b6bb9a"]
 NUTRI_COLORS = {"a": "#287a55", "b": "#6c9340", "c": "#d0a632", "d": "#d77a32", "e": "#e5484d", "unknown": "#747982"}
 DEFAULT_WEIGHTS = {
     "Lower sugar": 25,
@@ -61,13 +61,14 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">08 / Consumer product intelligence</div>
-          <h1>Food Label &<br>Product Choice Intelligence.</h1>
+          <div class="eyebrow">Food labels · Product comparison</div>
+          <h1>What’s in the package?</h1>
           <p>
-            Compare packaged foods, inspect label completeness and find
-            nutritionally similar products through a transparent preference model.
+            Compare packaged foods by their label details. See which products have
+            similar nutrition data and where information is missing. The comparison
+            score reflects your preferences, not whether a food is healthy.
           </p>
-          <div class="source-line">Open Food Facts · Community product database</div>
+          <div class="source-line">Open Food Facts · Community-maintained product data</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -180,7 +181,7 @@ def render_dashboard() -> None:
         },
         color_continuous_scale=["#747982", "#fcfcfd", "#e5484d"],
         size_max=28,
-        title="Sugar–protein trade-off · bubble size is fibre",
+        title="Sugar and protein per product",
         labels={
             "sugars_100g": "Sugars · g per 100 g/ml",
             "proteins_100g": "Protein · g per 100 g/ml",
@@ -321,7 +322,7 @@ def render_dashboard() -> None:
     with right:
         st.link_button("Open Open Food Facts API documentation", DOCS_URL, width="stretch")
 
-    with st.expander("Method, assumptions and limitations"):
+    with st.expander("Sources and how to read this"):
         st.markdown(
             """
             - **Choice Fit** is calculated only within the currently loaded sample.

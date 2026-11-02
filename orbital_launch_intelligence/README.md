@@ -1,11 +1,6 @@
-# Orbital Launch Reliability Intelligence
+# Launch activity
 
-A modern Streamlit product for exploring recent global launch operations,
-comparing providers with uncertainty-aware reliability estimates and inspecting
-upcoming mission schedules.
-
-It is integrated into the repository's central `streamlit_app.py`, so an
-existing Streamlit Community Cloud deployment updates from `main` automatically.
+Explore launch history and upcoming missions. Provider success rates include uncertainty ranges, so a provider with only a few attempts does not look more certain than the data allows.
 
 ## What it does
 
