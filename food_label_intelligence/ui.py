@@ -19,7 +19,7 @@ from food_label_intelligence.src.analytics import (
 from food_label_intelligence.src.data import CATEGORIES, COUNTRIES, DOCS_URL, load_data
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#a7abb2", "#747982", "#4a4f57", "#292d33"]
+PALETTE = ["#6f9e78", "#d49a52", "#7d9cb5", "#bb7e72", "#9c8bb3", "#b6bb9a"]
 NUTRI_COLORS = {"a": "#287a55", "b": "#6c9340", "c": "#d0a632", "d": "#d77a32", "e": "#e5484d", "unknown": "#747982"}
 DEFAULT_WEIGHTS = {
     "Lower sugar": 25,
@@ -57,17 +57,18 @@ def _product_label(row: pd.Series) -> str:
 
 
 def render_dashboard() -> None:
-    """Render the complete food label comparison mini-product."""
+    """Render the food-label comparison dashboard."""
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">08 / Consumer product intelligence</div>
-          <h1>Food Label &<br>Product Choice Intelligence.</h1>
+          <div class="eyebrow">Food labels · Product comparison</div>
+          <h1>What’s in the package?</h1>
           <p>
-            Compare packaged foods, inspect label completeness and find
-            nutritionally similar products through a transparent preference model.
+            Compare packaged foods by their label details. See which products have
+            similar nutrition data and where information is missing. The comparison
+            score reflects your preferences, not whether a food is healthy.
           </p>
-          <div class="source-line">Open Food Facts · Community product database</div>
+          <div class="source-line">Open Food Facts · Community-maintained product data</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -83,12 +84,12 @@ def render_dashboard() -> None:
         data, metadata = _cached_data(category, country)
     if metadata["mode"] == "demo":
         st.warning(
-            "Open Food Facts is temporarily unavailable or rate-limited. A deterministic "
-            "synthetic catalog is shown and is never presented as observed product data."
+            "Open Food Facts could not be reached, so this page is using sample products. "
+            "They are not current product listings."
         )
     else:
         st.success(
-            f"Live Open Food Facts sample loaded: {metadata['returned_products']:,} "
+            f"Latest Open Food Facts sample: {metadata['returned_products']:,} "
             f"products from {metadata['matching_products']:,} matching records.",
             icon="✅",
         )
@@ -178,9 +179,9 @@ def render_dashboard() -> None:
             "proteins_100g": ":.1f",
             "fiber_100g": ":.1f",
         },
-        color_continuous_scale=["#747982", "#fcfcfd", "#e5484d"],
+        color_continuous_scale=["#dce9dd", "#a9c49f", "#d49a52"],
         size_max=28,
-        title="Sugar–protein trade-off · bubble size is fibre",
+        title="Sugar and protein per product",
         labels={
             "sugars_100g": "Sugars · g per 100 g/ml",
             "proteins_100g": "Protein · g per 100 g/ml",
@@ -218,7 +219,7 @@ def render_dashboard() -> None:
                 y="brands",
                 orientation="h",
                 color="products",
-                color_continuous_scale=["#747982", "#fcfcfd", "#e5484d"],
+                color_continuous_scale=["#dce9dd", "#a9c49f", "#d49a52"],
                 title="Brand median Choice Fit · sample-aware",
                 labels={"median_fit": "Median Choice Fit", "brands": "", "products": "Products"},
                 hover_data={"median_sugar": ":.1f", "median_protein": ":.1f", "nova_4_share": ":.0f"},
@@ -321,7 +322,7 @@ def render_dashboard() -> None:
     with right:
         st.link_button("Open Open Food Facts API documentation", DOCS_URL, width="stretch")
 
-    with st.expander("Method, assumptions and limitations"):
+    with st.expander("Sources and how to read this"):
         st.markdown(
             """
             - **Choice Fit** is calculated only within the currently loaded sample.

@@ -1,12 +1,6 @@
-# EU Inflation & Household Basket Intelligence
+# Prices across Europe
 
-A deployment-ready Streamlit mini-product for comparing official harmonised
-inflation across Europe and translating category pressure into a transparent,
-user-defined household basket.
-
-The project is available from the repository's central `streamlit_app.py`
-portfolio. Once that application is deployed on Streamlit Community Cloud,
-future commits to `main` are reflected at the same URL.
+Compare the official HICP inflation measure across countries, then try a household spending mix of your own. The personal basket is an estimate based on your chosen weights, not an official inflation rate.
 
 ## Problem
 

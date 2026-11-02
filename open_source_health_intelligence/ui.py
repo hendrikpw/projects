@@ -31,7 +31,7 @@ from open_source_health_intelligence.src.data import (
 )
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#9da2aa", "#676c75", "#3d424a", "#24282e"]
+PALETTE = ["#4f8c7b", "#e6aa5b", "#7797c2", "#bd7f72", "#9b8bb4", "#aeb8c2"]
 
 
 def _style_figure(figure: go.Figure, height: int = 470) -> go.Figure:
@@ -65,13 +65,14 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">12 / Software delivery intelligence</div>
-          <h1>Open Source<br>Repository Health.</h1>
+          <div class="eyebrow">Open source · Public GitHub activity</div>
+          <h1>How does this repo<br>handle its work?</h1>
           <p>
-            Turn public GitHub activity into an auditable view of delivery flow,
-            backlog aging, contributor concentration and release rhythm.
+            Enter a public repository to explore its issues, pull requests,
+            contributors and release history. The summary is a small sample of
+            public activity, not a rating of project quality or maintainer health.
           </p>
-          <div class="source-line">GitHub REST API · Kaplan–Meier · Flow analytics</div>
+          <div class="source-line">GitHub public API · Recent activity sample</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -104,8 +105,8 @@ def render_dashboard() -> None:
     commits, languages = frames["commits"], frames["languages"]
     if metadata["mode"] == "demo":
         st.warning(
-            "GitHub live data is unavailable or rate-limited. All visible records are a "
-            "deterministic synthetic fallback and must not be interpreted as repository evidence."
+            "GitHub data could not be loaded, so this page is showing sample records. "
+            "They do not describe the repository you entered."
         )
     else:
         st.success(
@@ -130,7 +131,7 @@ def render_dashboard() -> None:
     k4.metric("PR resolution median", "Not reached" if pull_median is None else f"{pull_median:.1f} days")
     k5.metric("Effective contributors", f"{concentration['effective_contributors']:.1f}")
     st.caption(
-        "The pulse is a transparent portfolio heuristic, not an official GitHub rating. "
+        "The pulse is a simple score for this project, not an official GitHub rating. "
         "GitHub list endpoints are bounded and sorted by recent update, so values describe "
         "the retrieved activity window—not complete repository history."
     )
@@ -233,7 +234,7 @@ def render_dashboard() -> None:
                 y="unresolved_share",
                 color="work_type",
                 line_shape="hv",
-                title="Kaplan–Meier estimated unresolved share",
+                title="Share of issues still open over time",
                 labels={"day": "Days since creation", "unresolved_share": "Estimated unresolved · %", "work_type": ""},
                 color_discrete_sequence=PALETTE,
             )

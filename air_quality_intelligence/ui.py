@@ -18,7 +18,7 @@ from air_quality_intelligence.src.analytics import (
 from air_quality_intelligence.src.data import CITIES, fetch_cities, generate_demo_data
 
 
-CHART_COLORS = ["#fcfcfd", "#e5484d", "#a8adb4", "#6d727a", "#d5d7da", "#8e9299"]
+CHART_COLORS = ["#5cc8c1", "#f3a45b", "#7da7e8", "#c3a6e8", "#e88b9b", "#b6c1c9"]
 
 
 @st.cache_data(ttl=1800, show_spinner=False)
@@ -48,13 +48,13 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="page-hero">
-          <div class="brand-line">Project 01 / Environment</div>
-          <h1>European<br>Air Quality</h1>
+          <div class="brand-line">Air quality · Europe</div>
+          <h1>What will the air<br>be like this week?</h1>
           <p>
-            Compare urban forecasts, isolate high-risk hours and understand
-            which pollutants shape each city's seven-day outlook.
+            Compare the forecast for a handful of European cities. See when air
+            quality is expected to worsen and which pollutant is driving the change.
           </p>
-          <div class="source-line">Open-Meteo × CAMS / Live model data</div>
+          <div class="source-line">Forecasts from Open-Meteo, based on CAMS</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -62,8 +62,8 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Forecast explorer</div>
-          <h2>One atmosphere.<br>Different city signals.</h2>
+          <div class="section-kicker">Choose a few places</div>
+          <h2>Start with the cities<br>you care about.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -73,12 +73,12 @@ def render_dashboard() -> None:
         options=list(CITIES),
         default=["Stuttgart", "Berlin", "Paris", "Madrid"],
         max_selections=6,
-        help="Choose up to six cities. Each selection requests a seven-day hourly forecast.",
+        help="Pick up to six cities to compare their hourly forecasts for the next seven days.",
     )
     if not selected:
-        st.info("Select at least one city to start the comparison.")
+        st.info("Choose at least one city and the forecast will appear here.")
         return
-    with st.spinner("Loading the latest atmospheric forecast…"):
+    with st.spinner("Getting the latest forecast…"):
         raw, mode = _load(tuple(selected))
     if raw.empty:
         st.warning("No forecast rows are available for the selected cities.")
@@ -86,11 +86,11 @@ def render_dashboard() -> None:
     frame = prepare_frame(raw)
     if mode == "Synthetic demo":
         st.warning(
-            "Open-Meteo is temporarily unavailable. The dashboard is showing clearly labelled "
-            "synthetic demo data; these are not measurements or forecasts."
+            "The live forecast is unavailable right now, so this page is using sample data. "
+            "It does not describe current conditions."
         )
     min_date, max_date = min(frame["date"]), max(frame["date"])
-    date_range = st.slider("Forecast window", min_date, max_date, (min_date, max_date))
+    date_range = st.slider("Dates to compare", min_date, max_date, (min_date, max_date))
     frame = frame[(frame["date"] >= date_range[0]) & (frame["date"] <= date_range[1])]
     if frame.empty:
         st.info("No rows fall inside this forecast window.")
@@ -102,18 +102,24 @@ def render_dashboard() -> None:
     poor_hours = int((frame["european_aqi"] > 60).sum())
     average = frame["european_aqi"].mean()
     st.markdown(
-        '<div class="section-kicker" style="margin:2rem 0 1rem">Current selection / overview</div>',
+        '<div class="section-kicker" style="margin:2rem 0 1rem">At a glance</div>',
         unsafe_allow_html=True,
     )
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Average AQI", f"{average:.0f}", aqi_band(average))
-    c2.metric("Cleanest outlook", best["city"], f"AQI {best['average_aqi']:.0f}")
-    c3.metric("Forecast peak", f"{peak['european_aqi']:.0f}", peak["city"])
-    c4.metric("Poor-air hours", f"{poor_hours:,}", "AQI > 60")
+    c2.metric("Lowest average", best["city"], f"AQI {best['average_aqi']:.0f}")
+    c3.metric("Highest hourly AQI", f"{peak['european_aqi']:.0f}", peak["city"])
+    c4.metric("Hours above 60", f"{poor_hours:,}", "European AQI")
+
+    st.caption(
+        f"{best['city']} has the lowest average in this selection "
+        f"(AQI {best['average_aqi']:.0f}). The highest hourly value is "
+        f"{peak['european_aqi']:.0f} in {peak['city']}."
+    )
 
     trend = px.line(
         frame, x="time", y="european_aqi", color="city",
-        title="Hourly European AQI forecast",
+        title="Hourly forecast by city",
         labels={"time": "", "european_aqi": "European AQI", "city": "City"},
         color_discrete_sequence=CHART_COLORS,
     )
@@ -121,7 +127,7 @@ def render_dashboard() -> None:
         y0=60, y1=max(105, frame["european_aqi"].max() + 5),
         fillcolor="#e5484d", opacity=0.07, line_width=0,
     )
-    trend.add_hline(y=60, line_dash="dot", line_color="#e5484d", annotation_text="Poor threshold")
+    trend.add_hline(y=60, line_dash="dot", line_color="#e5484d", annotation_text="AQI 60")
     trend.update_traces(line={"width": 2.4})
     st.plotly_chart(_transparent_layout(trend), width="stretch")
 
@@ -130,7 +136,7 @@ def render_dashboard() -> None:
         daily = daily_profile(frame)
         bars = px.bar(
             daily, x="date", y="mean_aqi", color="city", barmode="group",
-            title="Daily average by city",
+            title="Average AQI each day",
             labels={"date": "", "mean_aqi": "Average AQI", "city": "City"},
             color_discrete_sequence=CHART_COLORS,
         )
@@ -139,21 +145,21 @@ def render_dashboard() -> None:
         mix = pollutant_mix(frame)
         donut = px.pie(
             mix, values="hours", names="pollutant", hole=0.68,
-            title="Dominant concentration signal",
+            title="Pollutant most often driving the AQI",
             color_discrete_sequence=["#fcfcfd", "#e5484d", "#8e9299", "#4c5058"],
         )
         donut.update_traces(textinfo="percent+label")
         st.plotly_chart(_transparent_layout(donut), width="stretch")
         st.caption(
-            "Diagnostic attribution based on normalized concentrations; "
-            "not a replacement for the official consolidated AQI."
+            "This shows which pollutant most often has the highest normalized index. "
+            "The official AQI still combines all pollutants."
         )
 
     st.markdown(
         """
         <section class="section-intro" style="margin-top:4rem">
-          <div class="section-kicker">Detail / cities</div>
-          <h2>City comparison.</h2>
+          <div class="section-kicker">The numbers behind the chart</div>
+          <h2>Compare city by city.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -171,19 +177,17 @@ def render_dashboard() -> None:
          "nitrogen_dioxide", "ozone", "data_mode"]
     ].to_csv(index=False).encode("utf-8")
     st.download_button(
-        "Download filtered forecast (CSV)", data=export,
+        "Download these forecast data (CSV)", data=export,
         file_name="european_air_quality_forecast.csv", mime="text/csv",
     )
-    with st.expander("Methodology, source and limitations"):
+    with st.expander("Where the data comes from"):
         st.markdown(
             """
-            - **Source:** Open-Meteo Air Quality API, based on CAMS forecasts.
-            - **Resolution:** CAMS Europe is approximately 11 km and hourly; this is modelled
-              grid data, not a street-level sensor reading.
-            - **AQI:** The consolidated European AQI is supplied by the API and represents
-              the maximum of its pollutant-specific indices.
-            - **Fallback:** Synthetic data is used only when the live endpoint fails and is visibly labelled.
-            - **Use:** Exploratory portfolio application—not medical or regulatory advice.
+            - The forecast comes from the Open-Meteo Air Quality API and is based on CAMS model data.
+            - CAMS Europe has an approximate grid size of 11 km. These are model forecasts, not readings from sensors on a particular street.
+            - The European AQI shown here is supplied by the API. It reflects the highest of the pollutant-specific indices.
+            - If the live service is unavailable, the page switches to sample data and labels it clearly.
+            - This comparison is for exploration. It is not medical or regulatory advice.
             """
         )
         st.link_button(

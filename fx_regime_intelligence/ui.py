@@ -27,7 +27,7 @@ from fx_regime_intelligence.src.data import (
 )
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#a7abb2", "#747982", "#4a4f57", "#292d33"]
+PALETTE = ["#5287a5", "#e2a45a", "#78a68f", "#b47778", "#9b8ac4", "#aeb8c2"]
 REGIME_COLORS = {"Stress": "#e5484d", "Normal": "#a7abb2", "Calm": "#4a4f57"}
 
 
@@ -54,15 +54,16 @@ def _cached_data() -> tuple[pd.DataFrame, dict]:
 
 
 def render_dashboard() -> None:
-    """Render the complete exchange-rate regime and risk mini-product."""
+    """Render the euro exchange-rate dashboard."""
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">10 / Financial market intelligence</div>
-          <h1>FX Market<br>Regime Intelligence.</h1>
+          <div class="eyebrow">Currencies · Euro reference rates</div>
+          <h1>How currencies moved<br>against the euro</h1>
           <p>
-            Monitor euro reference rates, detect unusual multi-currency sessions
-            and translate volatility into transparent exposure decisions.
+            Follow daily ECB reference rates and compare volatility across
+            currencies. The scenarios are simple illustrations, not forecasts
+            or prices for a transaction.
           </p>
           <div class="source-line">European Central Bank · Daily reference rates</div>
         </section>
@@ -74,8 +75,8 @@ def render_dashboard() -> None:
         data, metadata = _cached_data()
     if metadata["mode"] == "demo":
         st.warning(
-            "The ECB endpoint is temporarily unavailable. All components are running "
-            "on deterministic synthetic FX paths and must not be used for decisions."
+            "The ECB could not be reached, so this page is showing sample exchange rates. "
+            "They are not live market data."
         )
     else:
         st.success(
@@ -139,7 +140,7 @@ def render_dashboard() -> None:
         x="date",
         y="index",
         color="currency",
-        title="Euro purchasing-power paths · rebased to 100",
+        title="Exchange rates, rebased to 100",
         labels={"date": "", "index": "Index", "currency": "Currency"},
     )
     performance.add_hline(y=100, line_dash="dot", line_color="rgba(252,252,253,.28)")
@@ -171,7 +172,7 @@ def render_dashboard() -> None:
             y="market_volatility",
             color="regime",
             color_discrete_map=REGIME_COLORS,
-            title="Rolling cross-currency volatility regime",
+            title="Currency volatility over time",
             labels={"date": "", "market_volatility": "Median annualised volatility · %", "regime": "Regime"},
             hover_data={"absolute_move": ":.3f", "dispersion": ":.3f"},
         )
@@ -185,14 +186,14 @@ def render_dashboard() -> None:
             color="is_anomaly",
             size="market_move",
             color_discrete_map={True: "#e5484d", False: "#4a4f57"},
-            title="Isolation Forest session anomaly score",
+            title="Unusual currency movements",
             labels={"date": "", "anomaly_score": "Relative anomaly score", "is_anomaly": "Alert"},
             hover_data={"market_move": ":.3f", "dispersion": ":.3f"},
         )
         anomaly_chart.update_layout(showlegend=False)
         st.plotly_chart(_style_figure(anomaly_chart, 500), width="stretch")
 
-    with st.expander("How the regime and anomaly models work"):
+    with st.expander("How the flags are calculated"):
         st.markdown(
             f"""
             **Regimes** use the median annualised {window}-day volatility across the

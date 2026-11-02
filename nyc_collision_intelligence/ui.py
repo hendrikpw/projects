@@ -19,7 +19,7 @@ from nyc_collision_intelligence.src.analytics import (
 from nyc_collision_intelligence.src.data import DATASET_URL, load_data
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#a7abb2", "#6f747d", "#343840"]
+PALETTE = ["#ef8354", "#4f9da6", "#f2cc8f", "#7b8cde", "#c08497"]
 
 
 def _style_figure(figure: go.Figure, height: int = 470) -> go.Figure:
@@ -56,14 +56,14 @@ def render_dashboard() -> None:
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">04 / Geospatial safety analytics</div>
-          <h1>NYC Collision<br>Risk Intelligence.</h1>
+          <div class="eyebrow">Road safety · New York City</div>
+          <h1>Where do crashes<br>happen in NYC?</h1>
           <p>
-            Turn daily police-reported crash records into spatial risk signals,
-            robust anomaly alerts and inspectable evidence about time, place and
-            reported contributing factors.
+            Explore reported collisions by borough, time and outcome. The map
+            highlights places with repeated crashes; it does not predict where
+            the next one will happen.
           </p>
-          <div class="source-line">NYPD · NYC Open Data · Daily updates</div>
+          <div class="source-line">NYPD collision records · NYC Open Data</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -74,8 +74,8 @@ def render_dashboard() -> None:
 
     if metadata["mode"] == "demo":
         st.warning(
-            "NYC Open Data is currently unavailable. A deterministic synthetic "
-            "dataset is shown and is never presented as observed collision data."
+            "NYC Open Data could not be reached, so this page is using sample records. "
+            "They are not reported collisions."
         )
     else:
         st.success(
@@ -88,7 +88,7 @@ def render_dashboard() -> None:
     borough_options = sorted(
         value for value in data["borough"].dropna().unique() if value != "UNKNOWN"
     )
-    with st.expander("Analysis controls", expanded=True):
+    with st.expander("Choose what to compare", expanded=True):
         col_a, col_b, col_c, col_d = st.columns([1, 1.5, 1.2, 1])
         with col_a:
             days = st.select_slider("Latest window", options=[30, 60, 90, 120], value=90)
@@ -196,7 +196,7 @@ def render_dashboard() -> None:
                 "latitude_grid": False,
                 "longitude_grid": False,
             },
-            title="Collision risk grid · approximately 1 km cells",
+            title="Reported crashes by location",
         )
         map_figure.update_layout(
             mapbox_style="carto-darkmatter",
@@ -243,7 +243,7 @@ def render_dashboard() -> None:
                 hovertemplate="%{x|%d %b %Y}<br>%{y} crashes<br>MAD z: %{customdata[0]:.1f}<extra></extra>",
             )
         )
-        timeline.update_layout(title="Daily volume and robust anomaly signals")
+        timeline.update_layout(title="Crashes by day")
         timeline.update_xaxes(title=None)
         timeline.update_yaxes(title="Reported collisions")
         st.plotly_chart(_style_figure(timeline), width="stretch")

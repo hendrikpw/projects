@@ -25,7 +25,7 @@ from biodiversity_observation_intelligence.src.data import (
 )
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#a7abb2", "#747982", "#4a4f57", "#292d33"]
+PALETTE = ["#4f8f70", "#91b76a", "#d1a85b", "#7197a7", "#ac8291", "#b5bdc7"]
 MONTHS = {1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "Jun", 7: "Jul", 8: "Aug", 9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec"}
 
 
@@ -52,17 +52,18 @@ def _cached_data(names: tuple[str, ...]) -> tuple[pd.DataFrame, pd.DataFrame, di
 
 
 def render_dashboard() -> None:
-    """Render the complete GBIF observation and data-quality mini-product."""
+    """Render the species-observation dashboard."""
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">11 / Biodiversity data intelligence</div>
-          <h1>Biodiversity<br>Observation Intelligence.</h1>
+          <div class="eyebrow">Nature records · Europe</div>
+          <h1>Where have species<br>been recorded?</h1>
           <p>
-            Explore when and where European species are recorded, identify dense
-            observation zones and audit the quality behind every visible pattern.
+            Explore GBIF observations by species, season and place. A busy map
+            can mean more people are recording sightings there, so observation
+            counts should not be read as population sizes.
           </p>
-          <div class="source-line">GBIF · Taxonomy · Darwin Core occurrences</div>
+          <div class="source-line">GBIF · Species occurrence records</div>
         </section>
         """,
         unsafe_allow_html=True,
@@ -76,7 +77,7 @@ def render_dashboard() -> None:
         format_func=lambda name: f"{SPECIES[name]} · {name}",
     )
     if not selected:
-        st.info("Choose one to three species to load the observation intelligence workspace.")
+        st.info("Choose one to three species to see their observation records.")
         return
 
     with st.spinner("Resolving taxonomy and loading GBIF observations…"):
@@ -84,12 +85,12 @@ def render_dashboard() -> None:
     data = add_quality_features(raw)
     if metadata["mode"] == "demo":
         st.warning(
-            "GBIF is temporarily unavailable. The interface is using deterministic "
-            "synthetic records and counts; they are not real biodiversity evidence."
+            "GBIF could not be reached, so this page is showing sample records. "
+            "They are not actual species observations."
         )
     else:
         st.success(
-            f"Live GBIF data · {metadata['indexed_records']:,} indexed coordinate records · "
+            f"Latest GBIF data · {metadata['indexed_records']:,} indexed coordinate records · "
             f"{metadata['sample_records']:,} records in the spatial audit sample"
         )
 
@@ -156,7 +157,7 @@ def render_dashboard() -> None:
         zoom=2.35,
         center={"lat": 51, "lon": 11},
         opacity=0.68,
-        title="Bounded georeferenced occurrence sample",
+        title="Where observations were recorded",
         labels={"query_name": "Species"},
         color_discrete_sequence=PALETTE,
     )

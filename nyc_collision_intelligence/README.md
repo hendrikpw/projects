@@ -1,12 +1,6 @@
-# NYC Collision Risk Intelligence
+# NYC crash map
 
-A browser-based geospatial safety analytics product built from daily
-police-reported collision records. It finds spatial concentrations, detects
-unusual daily volumes, compares temporal patterns and keeps every result
-inspectable.
-
-The project is integrated into the repository's central Streamlit portfolio, so
-the preferred usage path is the hosted application rather than a local install.
+A look at New York City collision records by place, time and reported outcome. The map and summaries help show where crashes appear in the data; they are not a forecast of future risk.
 
 ## Problem
 

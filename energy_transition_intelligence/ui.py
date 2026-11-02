@@ -17,7 +17,7 @@ from energy_transition_intelligence.src.analytics import (
 from energy_transition_intelligence.src.data import INDICATORS, load_data
 
 
-PALETTE = ["#e5484d", "#fcfcfd", "#81848a", "#b8bbc0", "#5c6068"]
+PALETTE = ["#52b788", "#f4a261", "#78a6d0", "#a78bfa", "#b8c0cc"]
 
 
 def _layout(figure: go.Figure, height: int = 470) -> go.Figure:
@@ -50,16 +50,16 @@ def _cached_data() -> tuple[pd.DataFrame, dict]:
 
 
 def render_dashboard() -> None:
-    """Render the complete mini-product inside the shared portfolio."""
+    """Render the energy-transition comparison."""
     st.markdown(
         """
         <section class="page-hero">
-          <div class="eyebrow">03 / Machine learning & policy scenarios</div>
-          <h1>Energy Transition<br>Intelligence.</h1>
+          <div class="eyebrow">Energy · Europe</div>
+          <h1>How far along is<br>Europe’s energy shift?</h1>
           <p>
-            Compare European transition profiles, discover structural peer groups
-            and test how renewable growth, lower emissions and efficiency gains
-            could change a country's relative position.
+            Compare countries on renewable electricity, emissions and energy use.
+            The score is a relative snapshot, and the scenario controls let you
+            see how a few changes would affect that comparison.
           </p>
           <div class="source-line">World Bank · World Development Indicators</div>
         </section>
@@ -72,16 +72,16 @@ def render_dashboard() -> None:
 
     if metadata["mode"] == "demo":
         st.warning(
-            "The World Bank API is currently unavailable. The app is showing a "
-            "deterministic synthetic demo dataset; it is never presented as observed data."
+            "The World Bank service is unavailable, so this page is using sample data. "
+            "It is not a set of current observations."
         )
     else:
-        st.success("Live World Bank data loaded successfully.", icon="✅")
+        st.success("World Bank data loaded.", icon="✅")
 
     snapshot = latest_snapshot(data)
     available_countries = sorted(snapshot["country"].tolist())
 
-    with st.expander("Analysis controls", expanded=True):
+    with st.expander("Choose what to compare", expanded=True):
         control_a, control_b = st.columns([2.2, 1])
         with control_a:
             selected_countries = st.multiselect(
@@ -127,7 +127,7 @@ def render_dashboard() -> None:
         """
         <section class="section-intro">
           <div class="section-kicker">Relative benchmark</div>
-          <h2>One transparent score.<br>Three measurable drivers.</h2>
+          <h2>Three indicators,<br>one relative score.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -157,7 +157,7 @@ def render_dashboard() -> None:
                 "cluster": False,
             },
             color_discrete_sequence=PALETTE,
-            title="Structural peer groups · PCA projection",
+            title="Countries with similar energy profiles",
         )
         scatter.update_traces(marker=dict(size=15, line=dict(width=1, color="#101319")))
         scatter.update_traces(textposition="top center")

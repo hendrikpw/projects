@@ -1,9 +1,6 @@
-# London Cycle Rebalancing Intelligence
+# Station availability
 
-A live, deployment-ready Streamlit operations product for Transport for London's
-Santander Cycles network. It translates a volatile station snapshot into service
-levels, spatial pressure clusters and a transparent bike-transfer scenario. The
-page is integrated into the repository's central `streamlit_app.py`.
+A live snapshot of London cycle-hire stations. Empty stations need bikes and full stations need room, so the map highlights local pressure that a network-wide total can hide.
 
 ## Problem
 

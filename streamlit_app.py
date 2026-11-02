@@ -56,9 +56,9 @@ def render_home() -> None:
           <div>
             <h1>Data,<br>made useful.</h1>
             <p>
-              Interactive products that turn public data into clear decisions.
-              Transparent methods, reproducible code and interfaces designed
-              with restraint.
+              I build small data projects around questions in public datasets,
+              from air quality to bike availability. Each page shows where its
+              data comes from and what the charts can (and cannot) tell us.
             </p>
           </div>
           <div class="hero-footer">
@@ -72,8 +72,8 @@ def render_home() -> None:
     st.markdown(
         """
         <section class="section-intro">
-          <div class="section-kicker">Selected work / 01–32</div>
-          <h2>Thirty-two live products.<br>One growing system.</h2>
+          <div class="section-kicker">Selected projects · 32 in the collection</div>
+          <h2>A few questions.<br>Some useful data.</h2>
         </section>
         """,
         unsafe_allow_html=True,
@@ -82,10 +82,10 @@ def render_home() -> None:
         """
         <div class="project-grid">
           <article class="project-card project-card--air">
-            <div class="project-index">01 / ENVIRONMENTAL INTELLIGENCE</div>
+            <div class="project-index">01 / AIR QUALITY</div>
             <div>
               <h3>European Air Quality</h3>
-              <p>Compare cities, track the seven-day European AQI forecast and identify the pollutants driving risk.</p>
+              <p>Compare the next seven days in a few European cities and see when the air-quality forecast changes.</p>
               <div class="project-meta">
                 <span>Open-Meteo</span><span>CAMS</span><span>Plotly</span>
               </div>
@@ -102,10 +102,10 @@ def render_home() -> None:
             </div>
           </article>
           <article class="project-card project-card--energy">
-            <div class="project-index">03 / TRANSITION INTELLIGENCE</div>
+            <div class="project-index">03 / ENERGY</div>
             <div>
               <h3>Energy Transition</h3>
-              <p>Benchmark European transition profiles, discover peer groups and simulate measurable improvements.</p>
+              <p>Compare countries on renewable power, emissions and energy use, then try a few what-if changes.</p>
               <div class="project-meta">
                 <span>World Bank</span><span>K-means</span><span>PCA</span>
               </div>
@@ -114,18 +114,18 @@ def render_home() -> None:
           <article class="project-card project-card--collision">
             <div class="project-index">04 / GEOSPATIAL SAFETY</div>
             <div>
-              <h3>NYC Collision Risk</h3>
-              <p>Map collision concentrations, detect unusual days and compare reported factors by volume and severity.</p>
+              <h3>NYC Crash Map</h3>
+              <p>Explore reported crashes by location, time, borough and outcome.</p>
               <div class="project-meta">
                 <span>NYC Open Data</span><span>Geoanalytics</span><span>MAD</span>
               </div>
             </div>
           </article>
           <article class="project-card project-card--seismic">
-            <div class="project-index">05 / SEISMIC INTELLIGENCE</div>
+            <div class="project-index">05 / EARTHQUAKES</div>
             <div>
-              <h3>Global Seismic Activity</h3>
-              <p>Explore recent earthquakes through spatial sequences, focal depth, energy and magnitude-frequency behavior.</p>
+              <h3>Recent Earthquakes</h3>
+              <p>Browse recent events by location, magnitude and depth. The catalog describes recorded quakes, not future ones.</p>
               <div class="project-meta">
                 <span>USGS</span><span>DBSCAN</span><span>GeoJSON</span>
               </div>
@@ -134,8 +134,8 @@ def render_home() -> None:
           <article class="project-card project-card--inflation">
             <div class="project-index">06 / HOUSEHOLD ECONOMICS</div>
             <div>
-              <h3>EU Inflation & Household Basket</h3>
-              <p>Compare harmonised European inflation and decompose a transparent estimate for your own spending mix.</p>
+              <h3>Prices Across Europe</h3>
+              <p>Compare official inflation rates and try a household spending mix of your own.</p>
               <div class="project-meta">
                 <span>Eurostat</span><span>HICP</span><span>Basket model</span>
               </div>
@@ -144,18 +144,18 @@ def render_home() -> None:
           <article class="project-card project-card--launch">
             <div class="project-index">07 / SPACEFLIGHT OPERATIONS</div>
             <div>
-              <h3>Orbital Launch Reliability</h3>
-              <p>Benchmark launch providers with uncertainty-aware reliability, cadence, concentration and a live mission board.</p>
+              <h3>Space Launches</h3>
+              <p>Explore launch history, provider outcomes and upcoming missions.</p>
               <div class="project-meta">
                 <span>Launch Library 2</span><span>Wilson interval</span><span>HHI</span>
               </div>
             </div>
           </article>
           <article class="project-card project-card--food">
-            <div class="project-index">08 / CONSUMER PRODUCT INTELLIGENCE</div>
+            <div class="project-index">08 / FOOD LABELS</div>
             <div>
-              <h3>Food Label & Product Choice</h3>
-              <p>Compare packaged-food labels, audit missing data and discover similar nutrition profiles with visible priorities.</p>
+              <h3>Food Labels</h3>
+              <p>Compare the nutrition details on packaged-food labels and see where information is missing.</p>
               <div class="project-meta">
                 <span>Open Food Facts</span><span>Percentiles</span><span>Similarity</span>
               </div>
@@ -164,38 +164,38 @@ def render_home() -> None:
           <article class="project-card project-card--cyber">
             <div class="project-index">09 / CYBERSECURITY OPERATIONS</div>
             <div>
-              <h3>Cyber Vulnerability Prioritization</h3>
-              <p>Order confirmed exploited vulnerabilities with current EPSS, deadlines, ransomware signals and delivery capacity.</p>
+              <h3>Vulnerability Priorities</h3>
+              <p>Sort known-exploited vulnerabilities by likelihood, deadlines and the time available for fixes.</p>
               <div class="project-meta">
                 <span>CISA KEV</span><span>FIRST EPSS</span><span>TF-IDF</span>
               </div>
             </div>
           </article>
           <article class="project-card project-card--fx">
-            <div class="project-index">10 / FINANCIAL MARKET INTELLIGENCE</div>
+            <div class="project-index">10 / EXCHANGE RATES</div>
             <div>
-              <h3>FX Market Regime Intelligence</h3>
-              <p>Monitor euro reference rates, detect unusual sessions and translate volatility into transparent exposure scenarios.</p>
+              <h3>Euro Exchange Rates</h3>
+              <p>Follow ECB reference rates and compare how currencies have moved against the euro.</p>
               <div class="project-meta">
                 <span>ECB</span><span>Isolation Forest</span><span>Risk analytics</span>
               </div>
             </div>
           </article>
           <article class="project-card project-card--biodiversity">
-            <div class="project-index">11 / BIODIVERSITY DATA INTELLIGENCE</div>
+            <div class="project-index">11 / SPECIES RECORDS</div>
             <div>
-              <h3>Biodiversity Observation Intelligence</h3>
-              <p>Compare European species records, reveal observation concentration and audit the quality behind every spatial pattern.</p>
+              <h3>Species Observations</h3>
+              <p>See where and when species have been observed, with a reminder that sightings are not population counts.</p>
               <div class="project-meta">
                 <span>GBIF</span><span>DBSCAN</span><span>Data quality</span>
               </div>
             </div>
           </article>
           <article class="project-card project-card--health">
-            <div class="project-index">12 / SOFTWARE DELIVERY INTELLIGENCE</div>
+            <div class="project-index">12 / REPOSITORY ACTIVITY</div>
             <div>
               <h3>Open Source Repository Health</h3>
-              <p>Audit delivery flow, censored resolution times, backlog age, contributor concentration and release rhythm.</p>
+              <p>Look at public activity in a repository: issues, pull requests, contributors and releases.</p>
               <div class="project-meta">
                 <span>GitHub REST</span><span>Kaplan–Meier</span><span>HHI</span>
               </div>
@@ -418,19 +418,19 @@ with st.sidebar:
         "Navigate",
         [
             "Portfolio home",
-            "Air Quality Intelligence",
+            "Air Quality · Europe",
             "Job Market Analytics",
-            "Energy Transition Intelligence",
-            "NYC Collision Risk Intelligence",
-            "Global Seismic Activity Intelligence",
-            "EU Inflation & Household Basket",
-            "Orbital Launch Reliability Intelligence",
-            "Food Label & Product Choice Intelligence",
-            "Cyber Vulnerability Prioritization Intelligence",
-            "FX Market Regime Intelligence",
-            "Biodiversity Observation Intelligence",
-            "Open Source Repository Health Intelligence",
-            "London Cycle Rebalancing Intelligence",
+            "Energy Transition · Europe",
+            "NYC Crash Map",
+            "Recent Earthquakes",
+            "Prices Across Europe",
+            "Space Launches",
+            "Food Labels",
+            "Vulnerability Priorities",
+            "Euro Exchange Rates",
+            "Species Observations",
+            "Repository Activity",
+            "London Cycle Stations",
             "Research Evidence Pipeline",
             "Clinical Trial Operations ML Pipeline",
             "FDA Recall Triage Pipeline",
@@ -462,13 +462,13 @@ with st.sidebar:
     )
 
 
-if page == "Air Quality Intelligence":
+if page == "Air Quality · Europe":
     render_air_quality()
-elif page == "Biodiversity Observation Intelligence":
+elif page == "Species Observations":
     render_biodiversity()
-elif page == "Open Source Repository Health Intelligence":
+elif page == "Repository Activity":
     render_open_source_health()
-elif page == "London Cycle Rebalancing Intelligence":
+elif page == "London Cycle Stations":
     render_london_cycles()
 elif page == "Research Evidence Pipeline":
     render_research_evidence()
@@ -510,21 +510,21 @@ elif page == "MBTA Transit Graph Control":
     render_mbta_graph()
 elif page == "Job Market Analytics":
     render_job_market()
-elif page == "Energy Transition Intelligence":
+elif page == "Energy Transition · Europe":
     render_energy_transition()
-elif page == "NYC Collision Risk Intelligence":
+elif page == "NYC Crash Map":
     render_nyc_collisions()
-elif page == "Global Seismic Activity Intelligence":
+elif page == "Recent Earthquakes":
     render_earthquakes()
-elif page == "EU Inflation & Household Basket":
+elif page == "Prices Across Europe":
     render_eu_inflation()
-elif page == "Orbital Launch Reliability Intelligence":
+elif page == "Space Launches":
     render_orbital_launches()
-elif page == "Food Label & Product Choice Intelligence":
+elif page == "Food Labels":
     render_food_labels()
-elif page == "Cyber Vulnerability Prioritization Intelligence":
+elif page == "Vulnerability Priorities":
     render_cyber_vulnerabilities()
-elif page == "FX Market Regime Intelligence":
+elif page == "Euro Exchange Rates":
     render_fx_regimes()
 else:
     render_home()

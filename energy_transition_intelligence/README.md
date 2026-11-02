@@ -1,12 +1,6 @@
-# Energy Transition Intelligence
+# Energy transition
 
-An interactive, browser-based data science product for comparing European
-energy-transition profiles. It combines public World Bank indicators with a
-transparent composite score, unsupervised learning and a scenario simulator.
-
-The project is integrated into the repository's central Streamlit portfolio.
-Once that app is connected to Streamlit Community Cloud, no local setup or
-download is required.
+An interactive comparison of European countries using World Bank energy and emissions data. It includes a relative score, groups countries with similar indicator patterns, and lets you test a few what-if changes.
 
 ## Problem
 
