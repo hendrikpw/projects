@@ -54,7 +54,7 @@ def _cached_data() -> tuple[pd.DataFrame, dict]:
 
 
 def render_dashboard() -> None:
-    """Render the complete exchange-rate regime and risk mini-product."""
+    """Render the euro exchange-rate dashboard."""
     st.markdown(
         """
         <section class="page-hero">
@@ -75,8 +75,8 @@ def render_dashboard() -> None:
         data, metadata = _cached_data()
     if metadata["mode"] == "demo":
         st.warning(
-            "The ECB endpoint is temporarily unavailable. All components are running "
-            "on deterministic synthetic FX paths and must not be used for decisions."
+            "The ECB could not be reached, so this page is showing sample exchange rates. "
+            "They are not live market data."
         )
     else:
         st.success(

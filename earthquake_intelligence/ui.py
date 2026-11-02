@@ -60,7 +60,7 @@ def _cached_data() -> tuple[pd.DataFrame, dict]:
 
 
 def render_dashboard() -> None:
-    """Render the full seismic intelligence mini-product."""
+    """Render the recent-earthquake dashboard."""
     st.markdown(
         """
         <section class="page-hero">
@@ -82,8 +82,8 @@ def render_dashboard() -> None:
 
     if metadata["mode"] == "demo":
         st.warning(
-            "The USGS service is currently unavailable. A deterministic synthetic "
-            "catalog is displayed and is never presented as observed earthquake data."
+            "The USGS catalog could not be reached, so this map is using sample events. "
+            "They are not actual earthquakes."
         )
     else:
         latest = data["time"].max().strftime("%d %b %Y · %H:%M UTC")

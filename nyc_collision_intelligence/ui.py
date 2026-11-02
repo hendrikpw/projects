@@ -74,8 +74,8 @@ def render_dashboard() -> None:
 
     if metadata["mode"] == "demo":
         st.warning(
-            "NYC Open Data is currently unavailable. A deterministic synthetic "
-            "dataset is shown and is never presented as observed collision data."
+            "NYC Open Data could not be reached, so this page is using sample records. "
+            "They are not reported collisions."
         )
     else:
         st.success(

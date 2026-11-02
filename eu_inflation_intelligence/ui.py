@@ -109,8 +109,8 @@ def render_dashboard() -> None:
 
     if metadata["mode"] == "demo":
         st.warning(
-            "Eurostat is temporarily unavailable. Deterministic synthetic data is "
-            "shown and is explicitly excluded from official-data claims."
+            "Eurostat could not be reached, so this page is using sample figures. "
+            "They are not official inflation data."
         )
     else:
         latest_period = pd.Period(metadata["latest_period"], freq="M").strftime("%B %Y")

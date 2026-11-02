@@ -50,7 +50,7 @@ def _cached_data() -> tuple[pd.DataFrame, dict]:
 
 
 def render_dashboard() -> None:
-    """Render the complete mini-product inside the shared portfolio."""
+    """Render the energy-transition comparison."""
     st.markdown(
         """
         <section class="page-hero">
@@ -127,7 +127,7 @@ def render_dashboard() -> None:
         """
         <section class="section-intro">
           <div class="section-kicker">Relative benchmark</div>
-          <h2>One transparent score.<br>Three measurable drivers.</h2>
+          <h2>Three indicators,<br>one relative score.</h2>
         </section>
         """,
         unsafe_allow_html=True,

@@ -65,7 +65,7 @@ def _freshness_minutes(metadata: dict) -> float | None:
 
 
 def render_dashboard() -> None:
-    """Render the live network operations and rebalancing mini-product."""
+    """Render the London cycle-station dashboard."""
     st.markdown(
         """
         <section class="page-hero">
@@ -86,13 +86,13 @@ def render_dashboard() -> None:
         raw, metadata = _cached_network()
     if metadata["mode"] == "demo":
         st.warning(
-            "TfL live data is unavailable. Every visible station is deterministic synthetic "
-            "fallback data and must not be interpreted as the current London network."
+            "TfL data could not be reached, so this page is showing sample stations. "
+            "They do not show the current network."
         )
     else:
         freshness = _freshness_minutes(metadata)
         freshness_text = "unknown station timestamp" if freshness is None else f"latest station update {freshness:.1f} min before retrieval"
-        st.success(f"Live TfL snapshot · {len(raw):,} stations · {freshness_text}")
+        st.success(f"Latest TfL snapshot · {len(raw):,} stations · {freshness_text}")
 
     controls = st.columns([1, 1, 1, 1])
     with controls[0]:

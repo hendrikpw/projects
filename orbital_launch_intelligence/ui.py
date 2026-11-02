@@ -46,7 +46,7 @@ def _cached_data() -> tuple[pd.DataFrame, dict]:
 
 
 def render_dashboard() -> None:
-    """Render the complete launch reliability mini-product."""
+    """Render the launch-history dashboard."""
     st.markdown(
         """
         <section class="page-hero">
@@ -67,13 +67,13 @@ def render_dashboard() -> None:
 
     if metadata["mode"] == "demo":
         st.warning(
-            "Launch Library 2 is currently unavailable or rate-limited. A deterministic "
-            "synthetic catalog is shown and never presented as observed launch history."
+            "Launch Library 2 could not be reached, so this page is using sample launches. "
+            "They do not describe actual launch history."
         )
     else:
         retrieved = pd.Timestamp(metadata["retrieved_at"]).strftime("%d %b %Y · %H:%M UTC")
         st.success(
-            f"Live catalog loaded at {retrieved}: {metadata['historical_rows']:,} recent "
+            f"Latest catalog retrieved at {retrieved}: {metadata['historical_rows']:,} recent "
             f"records and {metadata['upcoming_rows']:,} scheduled launches.",
             icon="✅",
         )

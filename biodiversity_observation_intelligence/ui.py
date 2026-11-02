@@ -52,7 +52,7 @@ def _cached_data(names: tuple[str, ...]) -> tuple[pd.DataFrame, pd.DataFrame, di
 
 
 def render_dashboard() -> None:
-    """Render the complete GBIF observation and data-quality mini-product."""
+    """Render the species-observation dashboard."""
     st.markdown(
         """
         <section class="page-hero">
@@ -77,7 +77,7 @@ def render_dashboard() -> None:
         format_func=lambda name: f"{SPECIES[name]} · {name}",
     )
     if not selected:
-        st.info("Choose one to three species to load the observation intelligence workspace.")
+        st.info("Choose one to three species to see their observation records.")
         return
 
     with st.spinner("Resolving taxonomy and loading GBIF observations…"):
@@ -85,12 +85,12 @@ def render_dashboard() -> None:
     data = add_quality_features(raw)
     if metadata["mode"] == "demo":
         st.warning(
-            "GBIF is temporarily unavailable. The interface is using deterministic "
-            "synthetic records and counts; they are not real biodiversity evidence."
+            "GBIF could not be reached, so this page is showing sample records. "
+            "They are not actual species observations."
         )
     else:
         st.success(
-            f"Live GBIF data · {metadata['indexed_records']:,} indexed coordinate records · "
+            f"Latest GBIF data · {metadata['indexed_records']:,} indexed coordinate records · "
             f"{metadata['sample_records']:,} records in the spatial audit sample"
         )
 

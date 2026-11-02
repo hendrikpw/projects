@@ -57,7 +57,7 @@ def _product_label(row: pd.Series) -> str:
 
 
 def render_dashboard() -> None:
-    """Render the complete food label comparison mini-product."""
+    """Render the food-label comparison dashboard."""
     st.markdown(
         """
         <section class="page-hero">
@@ -84,12 +84,12 @@ def render_dashboard() -> None:
         data, metadata = _cached_data(category, country)
     if metadata["mode"] == "demo":
         st.warning(
-            "Open Food Facts is temporarily unavailable or rate-limited. A deterministic "
-            "synthetic catalog is shown and is never presented as observed product data."
+            "Open Food Facts could not be reached, so this page is using sample products. "
+            "They are not current product listings."
         )
     else:
         st.success(
-            f"Live Open Food Facts sample loaded: {metadata['returned_products']:,} "
+            f"Latest Open Food Facts sample: {metadata['returned_products']:,} "
             f"products from {metadata['matching_products']:,} matching records.",
             icon="✅",
         )
@@ -179,7 +179,7 @@ def render_dashboard() -> None:
             "proteins_100g": ":.1f",
             "fiber_100g": ":.1f",
         },
-        color_continuous_scale=["#747982", "#fcfcfd", "#e5484d"],
+        color_continuous_scale=["#dce9dd", "#a9c49f", "#d49a52"],
         size_max=28,
         title="Sugar and protein per product",
         labels={
@@ -219,7 +219,7 @@ def render_dashboard() -> None:
                 y="brands",
                 orientation="h",
                 color="products",
-                color_continuous_scale=["#747982", "#fcfcfd", "#e5484d"],
+                color_continuous_scale=["#dce9dd", "#a9c49f", "#d49a52"],
                 title="Brand median Choice Fit · sample-aware",
                 labels={"median_fit": "Median Choice Fit", "brands": "", "products": "Products"},
                 hover_data={"median_sugar": ":.1f", "median_protein": ":.1f", "nova_4_share": ":.0f"},

@@ -105,8 +105,8 @@ def render_dashboard() -> None:
     commits, languages = frames["commits"], frames["languages"]
     if metadata["mode"] == "demo":
         st.warning(
-            "GitHub live data is unavailable or rate-limited. All visible records are a "
-            "deterministic synthetic fallback and must not be interpreted as repository evidence."
+            "GitHub data could not be loaded, so this page is showing sample records. "
+            "They do not describe the repository you entered."
         )
     else:
         st.success(
@@ -131,7 +131,7 @@ def render_dashboard() -> None:
     k4.metric("PR resolution median", "Not reached" if pull_median is None else f"{pull_median:.1f} days")
     k5.metric("Effective contributors", f"{concentration['effective_contributors']:.1f}")
     st.caption(
-        "The pulse is a transparent portfolio heuristic, not an official GitHub rating. "
+        "The pulse is a simple score for this project, not an official GitHub rating. "
         "GitHub list endpoints are bounded and sorted by recent update, so values describe "
         "the retrieved activity window—not complete repository history."
     )
